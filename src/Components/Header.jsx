@@ -20,16 +20,16 @@ const Header = () => {
       </div>
       <div className="ice">
           <div className="left">
-            <img src={iceLeft} alt="" />
+            <img src={iceLeft} alt="ice" />
           </div>
           <div className="right">
-          <img src={iceRight} alt="" />
+          <img src={iceRight} alt="ice" />
           </div>
         </div>
       <div className="container">
         <nav>
           <div className="logo">
-            <Link to="/"><img src={logo} alt="" /></Link>
+            <Link to="/"><img src={logo} alt="logo" /></Link>
           </div>
           <ul>
             <li><Link className='whiteLink' to="/shop">SHOP</Link></li>

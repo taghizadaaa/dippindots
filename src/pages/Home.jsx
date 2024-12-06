@@ -12,6 +12,13 @@ import four from "../assets/Images/winter-2019-recipe-hpc.webp";
 import five from "../assets/Images/winter.webp";
 import infoImg from "../assets/Images/shipping-inclement-weather.webp"
 import lctnImg from "../assets/Images/Storefront-graphic.webp"
+import leftImgOne from '../assets/Images/dippin-dots-in-cup.webp'
+import leftImgTwo from "../assets/Images/nyc-store.webp"
+import business from "../assets/Images/business-circle.webp"
+import rightImgOne from "../assets/Images/colorful-cups.webp"
+import rightImgTwo from "../assets/Images/kiosk.webp"
+import dsrtImgLeft from "../assets/Images/cookies-for-santa.webp"
+import dsrtImgright from "../assets/Images/hpc.jpg"
 
 const Home = () => {
   const [isHovered, setIsHovered] = useState(false);
@@ -135,6 +142,75 @@ const Home = () => {
           </div>
           <div className="img">
             <img src={lctnImg} alt="Location" />
+          </div>
+        </div>
+      </section>
+      <section className="opportunities">
+        <div className="container">
+          <div className="items">
+            <div className="leftCards">
+              <img src={leftImgTwo} alt="img" />
+              <img src={leftImgOne} alt="img" />
+            </div>
+            <div className="middleCards">
+              <div className="item">
+                <img src={business} alt="img" />
+                <h1>Business Opportunities</h1>
+                <p>Bring the fun closer to the neighborhood and be part of the amazing Dippin' Dots team.</p>
+                <p>Franchising · Food Service · Distribution · Catering/Fundraising · International</p>
+                <div className="buttons">
+                  <button
+                    className="button"
+                  >
+                    OPPORTUNITIES
+                  </button>
+                  <span className="border"></span>
+                </div>
+              </div>
+            </div>
+            <div className="rightCards">
+              <img src={rightImgOne} alt="img" />
+              <img src={rightImgTwo} alt="img" />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section className="desserts">
+        <div className="container">
+          <h1>Dippin' Dots Desserts</h1>
+          <div className="items">
+            <div className="left">
+              <div className="img">
+                <img src={dsrtImgLeft} alt="img" className='hoverImg'/>
+                <span className='imgBorder'></span>
+              </div>
+              <h2>Cookies for Santa</h2>
+              <p>Definitely on nice list this year!</p>
+              <div className="buttons">
+                <button
+                  className="button"
+                >
+                  SEE RECIPE
+                </button>
+                <span className="border"></span>
+              </div>
+            </div>
+            <div className="right">
+              <div className="img">
+                <img src={dsrtImgright} alt="img" className='hoverImg'/>
+                <span className='imgBorder'></span>
+              </div>
+              <h2>Snowball Punch</h2>
+              <p>There's snow-thing like Snowball Punch!</p>
+              <div className="buttons">
+                <button
+                  className="button"
+                >
+                  SEE RECIPE
+                </button>
+                <span className="border"></span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
