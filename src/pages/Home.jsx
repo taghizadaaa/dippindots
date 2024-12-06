@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
@@ -19,9 +19,19 @@ import rightImgOne from "../assets/Images/colorful-cups.webp"
 import rightImgTwo from "../assets/Images/kiosk.webp"
 import dsrtImgLeft from "../assets/Images/cookies-for-santa.webp"
 import dsrtImgright from "../assets/Images/hpc.jpg"
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 const Home = () => {
   const [isHovered, setIsHovered] = useState(false);
+  useEffect(() => {
+    AOS.init({
+      duration: 1200, 
+      once: false, 
+    });
+
+    AOS.refresh();
+  }, []);
   return (
     <section className="main">
       <section className="home">
@@ -34,11 +44,11 @@ const Home = () => {
           modules={[Navigation, Pagination, Mousewheel, Keyboard]}
           className="mySwiper"
         >
-          <SwiperSlide className='one'>
+          <SwiperSlide className='one' >
             <div className="background">
               <img src={one} alt="img" className='slideImg' />
             </div>
-            <div className="items">
+            <div className="items" data-aos="fade-up">
               <h1>For Your Holiday Enjoy-mint</h1>
               <p>Candy Cane is a festive mix of red and green peppermint ice creams,  swirled together with cool Vanilla ice cream! </p>
               <button className='button'>LEARN MORE</button>

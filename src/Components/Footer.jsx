@@ -12,6 +12,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+
   return (
     <footer>
       <div className="ice">
