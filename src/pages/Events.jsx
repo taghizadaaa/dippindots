@@ -10,11 +10,11 @@ import imgSport from "../assets/Images/events/fe-sports.jpg"
 const cardsData = [
   { id: 1, title: "Community Events", img: imgEvents },
   { id: 2, title: "Corporate Catering", img: imgFestivals },
-  { id: 3, title: "Fairs & Festival", img: imgCatering},
-  { id: 4, title: "Food Trucks", img: imgTrucks},
-  { id: 5, title: "Private Events", img: imgPrivate},
-  { id: 6, title: "Schools", img: imgSchool},
-  { id: 7, title: "Sporting Events", img: imgSport},
+  { id: 3, title: "Fairs & Festival", img: imgCatering },
+  { id: 4, title: "Food Trucks", img: imgTrucks },
+  { id: 5, title: "Private Events", img: imgPrivate },
+  { id: 6, title: "Schools", img: imgSchool },
+  { id: 7, title: "Sporting Events", img: imgSport },
 
 ];
 
@@ -24,8 +24,8 @@ const Events = () => {
       <div className="container">
         <div className="items">
           <div className="top">
-            <h1>Get Dippin' Dots for your Events!</h1>
-            <p>We'll bring the fun to your next event, fair, or festival! From weddings to birthday parties and so much more, Dippin' Dots can make your next gathering an unforgettable one!</p>
+            <h1>FIND DIPPIN’ DOTS ICE CREAM</h1>
+            <p>Use our locator to find a Dippin' Dots store or shopping center location near you! <br />You can also find Dippin' Dots in thousands of locations across the country, from amusement parks to zoos - and just about everywhere in between!</p>
           </div>
           <div className="cards">
             {cardsData.map(card => (

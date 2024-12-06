@@ -1,0 +1,72 @@
+.storeLocation {
+    padding: 190px 0 0;
+
+    .top {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h1 {
+            font-size: 50px;
+            color: #00369D;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-family: sans-serif;
+            font-size: 15px;
+            width: 850px;
+            line-height: 25px;
+        }
+    }
+
+    .content {
+        margin-top: 50px;
+
+        .contentItem {
+            display: flex;
+
+            .city {
+                width: 30%;
+                margin-top: 30px;
+
+                label {
+                    font-family: sans-serif;
+                    font-size: 14px;
+                    margin-bottom: 13px;
+                    display: inline-block;
+                }
+
+                input {
+                    width: 95%;
+                    padding: 10px;
+                    border-radius: 8px;
+                    outline: none;
+                    border: 1px solid grey;
+                    margin-bottom: 18px;
+
+                    &::placeholder {
+                        font-family: sans-serif;
+                    }
+                }
+
+                .buttons {
+                    position: relative;
+                    .button {
+                        width: 95%;
+                    }
+                    .border {
+                        border-color: #00369D;
+                        width: 95%;
+                    }
+                }
+            }
+
+            .googleMap {
+                width: 70%;
+            }
+        }
+    }
+}
