@@ -19,7 +19,8 @@
     "scss": "^0.2.4",
     "swiper": "^11.1.15",
     "use-places-autocomplete": "^4.0.1",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "homepage": "https://taghizadaaa.github.io/dippintdots"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,6 +45,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "homepage": "https://taghizadaaa.github.io/dippintdots"
+  }
 }
