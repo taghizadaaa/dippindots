@@ -1,0 +1,22 @@
+.notFound {
+    padding-top: 160px;
+    .text {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        color: #00369D;
+        font-size: 2rem;
+        margin-bottom: 200px;
+        flex-direction: column;
+        h1 {
+            margin-bottom: 30px;
+        }
+        button {
+            width: 140%;
+            height: 59px;
+        }
+    }
+    span {
+        color: #00369D;
+    }
+}

@@ -6,6 +6,7 @@ import Events from "./pages/Events";
 import Location from "./pages/Location";
 import Shop from "./pages/Shop";
 import { Route, Routes } from "react-router-dom";
+import NotFound from "./pages/NotFound";
 
 const App = () => {
   return (
@@ -16,6 +17,7 @@ const App = () => {
         <Route path="/events" element={<Events />} />
         <Route path="/location" element={<Location />} />
         <Route path="/shop" element={<Shop />} />
+        <Route path="/*" element={<NotFound />} />
       </Routes>
       <Footer />
     </React.Fragment>
