@@ -12,7 +12,7 @@ const Header = () => {
     <header>
       <div className="top">
         <div className="account">
-          <Link className='blueLink'><FaRegUserCircle /> ACCOUNT</Link>
+          <Link className='blueLink' to="/account"><FaRegUserCircle /> ACCOUNT</Link>
         </div>
         <div className="cart">
         <Link className='blueLink'><FaShoppingCart /> CART</Link>

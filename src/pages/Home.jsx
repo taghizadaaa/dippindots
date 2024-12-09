@@ -127,7 +127,7 @@ const Home = () => {
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
               >
-                <Link className={isHovered ? "classBlue" : "whiteLink"}>
+                <Link className={isHovered ? "classBlue" : "whiteLink"} to="/shop">
                   SHOP NOW
                 </Link>
               </button>

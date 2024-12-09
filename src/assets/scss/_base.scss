@@ -15,6 +15,15 @@ section {
 }
 .white {
     color: #fff;
+    &:hover {
+        color: #00369D;
+    }
+}
+.blue {
+    color: #00369D;
+    &:hover {
+        color: #4496f6;
+    }
 }
 .whiteLink {
     color: #fff;
