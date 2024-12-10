@@ -14,7 +14,7 @@ const Account = () => {
         } else {
             setError('');
             navigate('/');
-            alert("Succesfull Create")
+            alert("Succesfull Sign in")
         }
     };
     return (
@@ -34,7 +34,7 @@ const Account = () => {
                                 onChange={(e) => setPassword(e.target.value)}
                                 required />
                             <div className="buttons">
-                            {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
+                                {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
                                 <button type='submit'
                                     className="button"
                                 >

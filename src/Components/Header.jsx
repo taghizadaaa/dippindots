@@ -40,7 +40,7 @@ const Header = () => {
             <li><Link className='whiteLink'>SELL</Link></li>
             <li><Link className='whiteLink'>DOT CRAZY! EMAIL CLUB</Link></li>
           </ul>
-          <div className="contact"><Link className='contactLink'>CONTACT US</Link></div>
+          <div className="contact"><Link className='contactLink' to="/contact">CONTACT US</Link></div>
         </nav>
       </div>
     </header>

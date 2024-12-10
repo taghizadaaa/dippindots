@@ -10,6 +10,7 @@ import { Route, Routes } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import ResetPassword from "./pages/ResetPassword"
 import Create from "./pages/Create";
+import Contact from "./pages/Contact";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="/*" element={<NotFound />} />
         <Route path="/reset" element={<ResetPassword />} />
         <Route path="/create" element={<Create />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
     </React.Fragment>

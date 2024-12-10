@@ -20,14 +20,14 @@ import rightImgTwo from "../assets/Images/kiosk.webp"
 import dsrtImgLeft from "../assets/Images/cookies-for-santa.webp"
 import dsrtImgright from "../assets/Images/hpc.jpg"
 import AOS from 'aos';
-import 'aos/dist/aos.css'; 
+import 'aos/dist/aos.css';
 
 const Home = () => {
   const [isHovered, setIsHovered] = useState(false);
   useEffect(() => {
     AOS.init({
-      duration: 1200, 
-      once: false, 
+      duration: 1200,
+      once: false,
     });
 
     AOS.refresh();
@@ -164,17 +164,21 @@ const Home = () => {
             </div>
             <div className="middleCards">
               <div className="item">
+                <div className="img">
                 <img src={business} alt="img" />
-                <h1>Business Opportunities</h1>
-                <p>Bring the fun closer to the neighborhood and be part of the amazing Dippin' Dots team.</p>
-                <p>Franchising · Food Service · Distribution · Catering/Fundraising · International</p>
-                <div className="buttons">
-                  <button
-                    className="button"
-                  >
-                    OPPORTUNITIES
-                  </button>
-                  <span className="border"></span>
+                </div>
+                <div className="content">
+                  <h1>Business Opportunities</h1>
+                  <p>Bring the fun closer to the neighborhood and be part of the amazing Dippin' Dots team.</p>
+                  <p>Franchising · Food Service · Distribution · Catering/Fundraising · International</p>
+                  <div className="buttons">
+                    <button
+                      className="button"
+                    >
+                      OPPORTUNITIES
+                    </button>
+                    <span className="border"></span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -191,7 +195,7 @@ const Home = () => {
           <div className="items">
             <div className="left">
               <div className="img">
-                <img src={dsrtImgLeft} alt="img" className='hoverImg'/>
+                <img src={dsrtImgLeft} alt="img" className='hoverImg' />
                 <span className='imgBorder'></span>
               </div>
               <h2>Cookies for Santa</h2>
@@ -207,7 +211,7 @@ const Home = () => {
             </div>
             <div className="right">
               <div className="img">
-                <img src={dsrtImgright} alt="img" className='hoverImg'/>
+                <img src={dsrtImgright} alt="img" className='hoverImg' />
                 <span className='imgBorder'></span>
               </div>
               <h2>Snowball Punch</h2>

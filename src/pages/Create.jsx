@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router'
+import { useNavigate } from 'react-router'
 
 const Create = () => {
     const [email, setEmail] = useState('');
+    const [user, setUser] = useState('');
+    const [surname, setSurname] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
@@ -23,14 +25,24 @@ const Create = () => {
                 <div className="item">
                     <h2>Account Information</h2>
                     <form onSubmit={handleSubmit}>
-                        <label>Email Address</label>
+                        <label>First Name:</label>
+                        <input type="text" id="name"
+                            value={user}
+                            onChange={(e) => setUser(e.target.value)}
+                            required />
+                        <label>Last Name:</label>
+                        <input type="text" id="surname"
+                            value={surname}
+                            onChange={(e) => setSurname(e.target.value)}
+                            required />
+                        <label>Email Address:</label>
                         <input type="email" id="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             required />
                         <div className="passwords">
                             <div className="confirm">
-                                <label>Password</label>
+                                <label>Password:</label>
                                 <input type="password"
                                     id="password"
                                     value={password}
