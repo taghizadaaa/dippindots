@@ -7,36 +7,24 @@ import { FaRegUserCircle } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 
 const Header = () => {
-  // State to track cart dropdown visibility
   const [isCartOpen, setIsCartOpen] = useState(false);
-
-  // Toggle cart dropdown visibility
   const toggleCart = () => setIsCartOpen(!isCartOpen);
-
-  // Close cart dropdown
   const closeCart = () => setIsCartOpen(false);
 
   return (
     <header>
-      {/* Modal Background */}
       {isCartOpen && <div className="modalBackground" onClick={closeCart}></div>}
-      
       <div className="top">
-        {/* Account Link */}
         <div className="account">
           <Link className='blueLink' to="/account">
             <FaRegUserCircle /> ACCOUNT
           </Link>
         </div>
-        
-        {/* Cart Link */}
         <div className="cart">
           <Link className='blueLink' onClick={toggleCart}>
             <FaShoppingCart /> CART
           </Link>
         </div>
-        
-        {/* Cart Dropdown */}
         {isCartOpen && (
           <div className="cartDrop">
             <h5>Your cart contains item</h5>
@@ -72,8 +60,6 @@ const Header = () => {
           </div>
         )}
       </div>
-
-      {/* Ice Decorations */}
       <div className="ice">
         <div className="left">
           <img src={iceLeft} alt="ice" />
@@ -82,8 +68,6 @@ const Header = () => {
           <img src={iceRight} alt="ice" />
         </div>
       </div>
-
-      {/* Navigation */}
       <div className="container">
         <nav>
           <div className="logo">
