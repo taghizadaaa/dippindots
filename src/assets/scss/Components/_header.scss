@@ -3,6 +3,18 @@ header {
     background-color: #00369D;
     position: fixed;
     z-index: 2;
+
+    .modalBackground {
+        transition: all .4s ease;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 229, 229, 0.5);
+        z-index: 1;
+    }
+
     .top {
         display: flex;
         justify-content: flex-end;
@@ -12,7 +24,102 @@ header {
         padding: 10px 50px 10px 0;
         position: relative;
         z-index: 1;
+
+        .cartDrop {
+            width: 25rem;
+            position: absolute;
+            right: 0;
+            height: 102vh;
+            top: -9px;
+            background-color: #fff;
+            z-index: 5;
+
+            h5 {
+                padding: 1rem;
+                font-size: 1rem;
+                font-weight: 700;
+                background-color: #eff1f5;
+            }
+
+            .content {
+                padding: 1rem;
+
+                .checkout {
+                    .subtotal {
+                        font-size: 1rem;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-flow: row nowrap;
+                        margin: 0 0 1rem;
+                        background-color: #fff;
+                        padding: 0;
+                    }
+
+                    .buttons {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        flex-flow: row nowrap;
+
+                        button {
+                            background-color: transparent;
+                            border: 1px dashed #00369D;
+                            padding: 7px 15px;
+                            border-radius: 20px;
+                            transition: 0.2s ease-in-out;
+                            margin-bottom: 20px;
+
+                            &:hover {
+                                background-color: #00369D;
+                            }
+                        }
+                    }
+                }
+
+                hr {
+                    border: 1px dashed;
+                }
+
+                .products {
+                    position: static;
+                    display: block;
+                    left: auto;
+                    top: auto;
+                    padding: 0;
+
+                    li {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-rows: auto;
+                        column-gap: 1rem;
+                        font-size: .875rem;
+                        margin-bottom: 1.25rem;
+                        align-items: center;
+
+                        img {
+                            width: 160px;
+                            height: 155px;
+                            object-fit: contain;
+                        }
+
+                        .cnt {
+                            text-align: right;
+
+                            h3 {
+                                margin: 0 0 .5rem;
+                                color: #00369D;
+                                font-size: 1.75rem;
+                                line-height: 1.875rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
     }
+
     .ice {
         display: flex;
         justify-content: space-between;
@@ -21,6 +128,7 @@ header {
         z-index: 0;
         padding: 0 10px;
     }
+
     .container {
         nav {
             display: flex;
@@ -31,16 +139,19 @@ header {
             position: relative;
             top: -50px;
             padding: 0 10px;
+
             img {
-             position: relative;
-             width: 150px;
-             height: 110px;
-             top: 2.325rem;
-             z-index: 4;         
+                position: relative;
+                width: 150px;
+                height: 110px;
+                top: 2.325rem;
+                z-index: 4;
             }
+
             ul {
                 display: flex;
                 transition: 0.3s ease-in-out;
+
                 li {
                     margin-left: 10px;
                     padding: 10px;
