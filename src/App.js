@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import ResetPassword from "./pages/ResetPassword"
 import Create from "./pages/Create";
 import Contact from "./pages/Contact";
+import ShopProducts from "./Components/ShopProducts"
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
         <Route path="/reset" element={<ResetPassword />} />
         <Route path="/create" element={<Create />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/products" element={<ShopProducts />} />
       </Routes>
       <Footer />
     </React.Fragment>

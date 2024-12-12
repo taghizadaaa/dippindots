@@ -13,6 +13,7 @@ header {
         height: 100%;
         background: rgba(255, 229, 229, 0.5);
         z-index: 1;
+        cursor: pointer;
     }
 
     .top {
@@ -27,9 +28,11 @@ header {
 
         .cartDrop {
             width: 25rem;
+            height: 102vh;
+            overflow: hidden;
+            transition: 0.5s ease-in-out;
             position: absolute;
             right: 0;
-            height: 102vh;
             top: -9px;
             background-color: #fff;
             z-index: 5;
@@ -117,7 +120,6 @@ header {
                 }
             }
         }
-
     }
 
     .ice {

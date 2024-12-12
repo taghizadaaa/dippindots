@@ -102,56 +102,63 @@ const Home = () => {
         </Swiper>
       </section>
       <section className='info'>
-        <div className="infoItems">
-          <div className="img">
-            <img src={infoImg} alt="" />
-          </div>
-          <div className="content">
-            <h2>Holiday Shipping Info</h2>
-            <p>
-              Looking to order Dippin’ Dots this holiday season? </p>
-            <p>You have excellent taste! </p>
-            <p>
+        <div className="container">
+          <div className="infoItems">
+            <div className="img">
+              <img src={infoImg} alt="" />
+            </div>
+            <div className="content">
+              <h2>Holiday Shipping Info</h2>
+              <p>
+                Looking to order Dippin’ Dots this holiday season? </p>
+              <p>You have excellent taste! </p>
+              <p>
 
-              Of course, we want to ensure your Dippin’ Dots arrive to their destination in the same perfectly delicious condition as when they left our freezer, so for the holiday season,
-              all orders will ship             <b>overnight delivery only</b>.</p>
+                Of course, we want to ensure your Dippin’ Dots arrive to their destination in the same perfectly delicious condition as when they left our freezer, so for the holiday season,
+                all orders will ship             <b>overnight delivery only</b>.</p>
 
-            <p>This time of year, many packages are delayed by carriers due to shipping volumes, bad weather, North Pole customs, etc.
-              While a slight delay in deliveries is normally okay, that’s not the case when it comes to ice cream, because...well, it melts. And that’s no fun at all! </p>
-            <p>
-              Standard shipping options will return in January, after the rush of the holiday season is over.
-            </p>
-            <div className="buttons">
-              <button
-                className="button"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
-              >
-                <Link className={isHovered ? "classBlue" : "whiteLink"} to="/shop">
-                  SHOP NOW
-                </Link>
-              </button>
-              <span className="border"></span>
+              <p>This time of year, many packages are delayed by carriers due to shipping volumes, bad weather, North Pole customs, etc.
+                While a slight delay in deliveries is normally okay, that’s not the case when it comes to ice cream, because...well, it melts. And that’s no fun at all! </p>
+              <p>
+                Standard shipping options will return in January, after the rush of the holiday season is over.
+              </p>
+              <div className="buttons">
+                <button
+                  className="button"
+                  onMouseEnter={() => setIsHovered(true)}
+                  onMouseLeave={() => setIsHovered(false)}
+                >
+                  <Link className={isHovered ? "classBlue" : "whiteLink"} to="/shop">
+                    SHOP NOW
+                  </Link>
+                </button>
+                <span className="border"></span>
+              </div>
             </div>
           </div>
         </div>
+
       </section>
       <section className="location">
-        <div className="items">
-          <div className="info">
-            <h1>Find Dippin’ Dots Near You!</h1>
-            <p>Did you know there's Dippin’ Dots stores and shopping center locations all across the U.S.? Use our locator to find one near you!</p>
-            <div className="buttons">
-              <button
-                className="button"
-              >
-                FIND A LOCATION
-              </button>
-              <span className="border"></span>
+        <div className="container">
+          <div className="items">
+            <div className="info">
+              <div className="item">
+                <h1>Find Dippin’ Dots Near You!</h1>
+                <p>Did you know there's Dippin’ Dots stores and shopping center locations all across the U.S.? Use our locator to find one near you!</p>
+                <div className="buttons">
+                  <button
+                    className="button"
+                  >
+                    FIND A LOCATION
+                  </button>
+                  <span className="border"></span>
+                </div>
+              </div>
             </div>
-          </div>
-          <div className="img">
-            <img src={lctnImg} alt="Location" />
+            <div className="img">
+              <img src={lctnImg} alt="Location" />
+            </div>
           </div>
         </div>
       </section>
@@ -160,12 +167,12 @@ const Home = () => {
           <div className="items">
             <div className="leftCards">
               <img src={leftImgTwo} alt="img" />
-              <img src={leftImgOne} alt="img" />
+              <img src={leftImgOne} alt="img" className='short' />
             </div>
             <div className="middleCards">
               <div className="item">
                 <div className="img">
-                <img src={business} alt="img" />
+                  <img src={business} alt="img" />
                 </div>
                 <div className="content">
                   <h1>Business Opportunities</h1>

@@ -133,29 +133,33 @@
     .items {
         display: flex;
         align-items: center;
-
         .info {
             width: 50%;
             position: relative;
             left: 110px;
 
-            h1 {
-                font-size: 3rem;
-                line-height: 3.25rem;
-                color: #00369D;
-                margin-bottom: 1.5rem;
-            }
+            .item {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                h1 {
+                    font-size: 3rem;
+                    line-height: 3.25rem;
+                    color: #00369D;
+                    margin-bottom: 1.5rem;
+                }
 
-            p {
-                margin-bottom: 1.5rem;
-                font-family: sans-serif;
-                width: 69%;
-            }
+                p {
+                    margin-bottom: 1.5rem;
+                    font-family: sans-serif;
+                    width: 69%;
+                }
 
-            .buttons {
-                .border {
-                    border-color: #00369D;
-                    width: 155px;
+                .buttons {
+                    .border {
+                        border-color: #00369D;
+                        width: 155px;
+                    }
                 }
             }
         }
@@ -164,6 +168,7 @@
             width: 50%;
             display: flex;
             justify-content: center;
+
             img {
                 width: 542px;
                 height: 542px;
@@ -181,17 +186,21 @@
         justify-content: space-between;
         padding: 10px;
 
-        img {
-            width: 308px;
-            height: 308px;
-            display: flex;
-            border-radius: 45px;
-        }
 
         .leftCards {
             display: flex;
             flex-direction: column;
             gap: 20px;
+            width: 25%;
+            height: 100%;
+
+            img {
+                width: 100%;
+                height: 40vh;
+                display: flex;
+                border-radius: 45px;
+                object-fit: cover;
+            }
         }
 
         .middleCards {
@@ -205,9 +214,11 @@
                 position: relative;
                 left: 15px;
                 padding: 0 20px;
+
                 .img {
                     display: flex;
                     justify-content: center;
+
                     img {
                         position: relative;
                         top: -90px;
@@ -220,6 +231,7 @@
                     display: flex;
                     flex-direction: column;
                     align-items: center;
+
                     h1 {
                         color: #fff;
                         font-size: 2.5rem;
@@ -267,6 +279,15 @@
             display: flex;
             flex-direction: column;
             gap: 20px;
+            width: 25%;
+
+            img {
+                width: 100%;
+                height: 40vh;
+                display: flex;
+                border-radius: 45px;
+                object-fit: cover;
+            }
         }
     }
 }
@@ -299,7 +320,7 @@
             margin-bottom: 30px;
 
             img {
-                width: 554px;
+                width: 80%;
                 height: 436px;
                 object-fit: cover;
                 border-radius: 15px;
@@ -320,9 +341,9 @@
             .imgBorder {
                 border: 1px dashed #00369D;
                 position: absolute;
-                width: 554px;
+                width: 80%;
                 height: 436px;
-                left: 30px;
+                left: 8%;
                 bottom: -5px;
                 border-radius: 15px;
                 z-index: 0;
@@ -342,9 +363,15 @@
 
         .buttons {
             position: relative;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
 
             .button {
+                background-color: #00369D;
                 padding: 10px 20px;
+                width: 130px;
 
                 &:hover {
                     background-color: transparent;
@@ -352,17 +379,18 @@
                 }
 
                 &:hover+.border {
-                    left: 260px;
-                    bottom: 2px;
+                    top: -44px;
+                    left: 0px;
                 }
             }
 
             .border {
-                position: absolute;
-                left: 250px;
-                width: 130px;
-                bottom: -5px;
                 border-color: #00369D;
+                width: 100px;
+                position: relative;
+                left: -10px;
+                top: -40px;
+
             }
         }
     }
@@ -378,7 +406,7 @@
             margin-bottom: 30px;
 
             img {
-                width: 554px;
+                width: 80%;
                 height: 436px;
                 object-fit: cover;
                 border-radius: 15px;
@@ -399,9 +427,9 @@
             .imgBorder {
                 border: 1px dashed #00369D;
                 position: absolute;
-                width: 554px;
+                width: 80%;
                 height: 436px;
-                left: 30px;
+                left: 8%;
                 bottom: -5px;
                 border-radius: 15px;
                 z-index: 0;
@@ -421,9 +449,15 @@
 
         .buttons {
             position: relative;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
 
             .button {
+                background-color: #00369D;
                 padding: 10px 20px;
+                width: 130px;
 
                 &:hover {
                     background-color: transparent;
@@ -431,17 +465,18 @@
                 }
 
                 &:hover+.border {
-                    left: 260px;
-                    bottom: 2px;
+                    top: -44px;
+                    left: 0px;
                 }
             }
 
             .border {
-                position: absolute;
-                left: 250px;
-                width: 130px;
-                bottom: -5px;
                 border-color: #00369D;
+                width: 100px;
+                position: relative;
+                left: -10px;
+                top: -40px;
+
             }
         }
     }
