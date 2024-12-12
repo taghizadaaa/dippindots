@@ -1,13 +1,13 @@
 @import "./base";
-@import "./components/header";
-@import "./components/footer";
+@import "./Components/header";
+@import "./Components/footer";
 @import "./pages/events";
 @import "./pages/home";
 @import "./pages/location";
 @import "./pages/shop";
 @import "./pages/notFound";
 @import "./pages/account";
-@import "./pages/cart";
+@import "./Components/shopProducts";
 @import "./pages/contact";
 @import "./pages/resetPassword";
 @import "./pages/create";

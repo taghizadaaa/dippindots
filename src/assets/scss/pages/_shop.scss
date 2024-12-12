@@ -1,0 +1,44 @@
+.shopProducts {
+    padding: 170px 0;
+    .items {
+        width: 100%;
+        .top {
+            width: 100%;
+            .item {
+                text-align: center;
+                h1 {
+                    font-size: 3rem;
+                    color: #00369D;
+                    margin-bottom: 10px;
+                }
+                p {
+                    font-family: sans-serif;
+                }
+            }
+        }
+        .products {
+            margin-top: 160px;
+            .filter {
+                width: 100%;
+                form {
+                    label {
+                        font-family: sans-serif;
+                    }
+                    select {
+                        margin: 0 20px;
+                        border: 1px solid rgb(167, 164, 164);
+                        border-radius: 10px;
+                        padding: 10px 20px;
+                    }
+                }
+            }
+            .cardBox {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                margin-top: 40px;
+            }
+        }
+    }
+}
