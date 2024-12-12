@@ -40,28 +40,30 @@
                 transition: 0.3s ease-in-out;
                 margin-bottom: 30px;
                 img {
-                    width: 376px;
-                    height: 376px;
+                    width: 80%;
+                    height: 436px;
                     object-fit: cover;
                     border-radius: 15px;
                     position: relative;
                     z-index: 1;
                     cursor: pointer;
                     transition: 0.3s ease-in-out;
-                    
                 }
-                &:hover  {
+    
+                &:hover {
                     transform: rotate(0deg);
                 }
-                &:hover  .hoverImg{
+    
+                &:hover .hoverImg {
                     transform: scale(1.07);
                 }
+    
                 .imgBorder {
                     border: 1px dashed #00369D;
                     position: absolute;
-                    width: 376px;
-                    height: 376px;
-                    left: 0px;
+                    width: 80%;
+                    height: 436px;
+                    left: 8%;
                     bottom: -5px;
                     border-radius: 15px;
                     z-index: 0;

@@ -41,7 +41,7 @@ const Account = () => {
                                     SIGN IN
                                 </button>
                                 <button className='forget'>
-                                    <Link className='blue' to="/reset">Forgot your password?</Link>
+                                    <Link className='passBlue' to="/reset">Forgot your password?</Link>
                                 </button>
                             </div>
                         </form>
