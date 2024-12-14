@@ -12,6 +12,7 @@ import ResetPassword from "./pages/ResetPassword"
 import Create from "./pages/Create";
 import Contact from "./pages/Contact";
 import ShopProducts from "./Components/ShopProducts"
+import EditCart from "./pages/EditCart";
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path="/create" element={<Create />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<ShopProducts />} />
+        <Route path="/edit" element={<EditCart />} />
       </Routes>
       <Footer />
     </React.Fragment>

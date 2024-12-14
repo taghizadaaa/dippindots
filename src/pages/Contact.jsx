@@ -41,7 +41,7 @@ const Contact = () => {
                                     value={surname}
                                     onChange={(e) => setSurname(e.target.value)}
                                     required />
-                                <label>First Name</label>
+                                <label>Email</label>
                                 <input type="email" id='email'
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}

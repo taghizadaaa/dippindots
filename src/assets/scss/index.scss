@@ -1,6 +1,8 @@
 @import "./base";
+//Components//
 @import "./Components/header";
 @import "./Components/footer";
+//Pages//
 @import "./pages/events";
 @import "./pages/home";
 @import "./pages/location";
@@ -11,3 +13,4 @@
 @import "./pages/contact";
 @import "./pages/resetPassword";
 @import "./pages/create";
+@import "./pages/editCart"

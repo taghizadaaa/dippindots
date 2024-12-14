@@ -11,6 +11,10 @@ const Header = () => {
   const toggleCart = () => setIsCartOpen(!isCartOpen);
   const closeCart = () => setIsCartOpen(false);
 
+  const handleViewEditClick = () => {
+    closeCart();
+  };
+
   return (
     <header>
       {isCartOpen && <div className="modalBackground" onClick={closeCart}></div>}
@@ -35,7 +39,7 @@ const Header = () => {
                 </h5>
                 <div className="buttons">
                   <button>
-                    <Link to="/cart" className='classBlue'>
+                    <Link to="/edit" className='blue' onClick={handleViewEditClick}>
                       View / Edit Cart
                     </Link>
                   </button>
