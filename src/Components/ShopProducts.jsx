@@ -16,7 +16,7 @@ const ShopProducts = () => {
                     <button
                         className="button"
                     >
-                        <Link className='white'>WIEW FLAVOR</Link>
+                        <Link className='white' to="/info">WIEW FLAVOR</Link>
                     </button>
                 </div>
             </div>

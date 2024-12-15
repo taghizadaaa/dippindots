@@ -13,6 +13,7 @@ import Create from "./pages/Create";
 import Contact from "./pages/Contact";
 import ShopProducts from "./Components/ShopProducts"
 import EditCart from "./pages/EditCart";
+import CardInfo from "./pages/CardInfo"
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/products" element={<ShopProducts />} />
         <Route path="/edit" element={<EditCart />} />
+        <Route path="/info" element={<CardInfo />} />
       </Routes>
       <Footer />
     </React.Fragment>
