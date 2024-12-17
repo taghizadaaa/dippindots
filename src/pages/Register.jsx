@@ -1,24 +1,67 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 
-const Create = () => {
+const Register = () => {
     const [email, setEmail] = useState('');
-    const [user, setUser] = useState('');
-    const [surname, setSurname] = useState('');
+    const [user, setUser] = useState(''); 
+    const [surname, setSurname] = useState(''); 
     const [password, setPassword] = useState('');
+    const [avatar, setAvatar] = useState('https://picsum.photos/800'); 
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         if (password.length < 8) {
             setError('The password must be at least 8 characters long!');
         } else {
             setError('');
-            navigate('/');
-            alert("Succesfull Created")
+            try {
+                
+                const createResponse = await fetch('https://api.escuelajs.co/api/v1/users/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        name: `${user} ${surname}`, 
+                        email,
+                        password,
+                        avatar, 
+                    }),
+                });
+
+                const createData = await createResponse.json();
+
+                if (!createResponse.ok) {
+                    throw new Error(createData.message || 'Account creation failed!');
+                }
+
+                
+                const loginResponse = await fetch('https://api.escuelajs.co/api/v1/auth/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email, password }),
+                });
+
+                const loginData = await loginResponse.json();
+
+                if (!loginResponse.ok) {
+                    throw new Error(loginData.message || 'Login failed!');
+                }
+
+                
+                localStorage.setItem('token', loginData.access_token);
+                alert('Account successfully created and logged in!');
+                navigate('/'); 
+            } catch (err) {
+                setError(err.message || 'An error occurred, please try again!');
+            }
         }
     };
+
     return (
         <section className="createAccount">
             <div className="container">
@@ -52,9 +95,7 @@ const Create = () => {
                             </div>
                         </div>
                         <div className="buttons">
-                            <button type='submit'
-                                className="button"
-                            >
+                            <button type='submit' className="button">
                                 CREATE ACCOUNT
                             </button>
                         </div>
@@ -62,7 +103,7 @@ const Create = () => {
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default Create
+export default Register;

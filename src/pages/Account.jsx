@@ -1,55 +1,86 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router'
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Account = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        setError('');
         if (password.length < 8) {
-            setError('The password must be at least 8 characters long!');
-        } else {
-            setError('');
+            setError('Password must be at least 8 characters long!');
+            return;
+        }
+
+        setLoading(true);
+
+        try {
+            const response = await fetch('https://api.escuelajs.co/api/v1/auth/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                throw new Error(data.message || 'Login failed!');
+            }
+
+            localStorage.setItem('token', data.access_token);
+            setLoading(false);
+
             navigate('/');
-            alert("Succesfull Sign in")
+            window.location.reload();
+        } catch (err) {
+            setError(err.message || 'An error occurred, please try again!');
+            setLoading(false);
         }
     };
+
     return (
         <section className="accountPage">
             <div className="container">
                 <div className="items">
+
                     <div className="sign">
                         <form onSubmit={handleSubmit}>
                             <label>Email Address:</label>
-                            <input type="email" id="email"
+                            <input
+                                type="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                required />
+                                required
+                            />
                             <label>Password:</label>
-                            <input type="password" id="password"
+                            <input
+                                type="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                required />
+                                required
+                            />
                             <div className="buttons">
                                 {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
-                                <button type='submit'
-                                    className="button"
-                                >
-                                    SIGN IN
+                                <button type="submit" className="button" disabled={loading}>
+                                    {loading ? 'Please wait...' : 'SIGN IN'}
                                 </button>
-                                <button className='forget'>
-                                    <Link className='passBlue' to="/reset">Forgot your password?</Link>
+                                <button className="forget">
+                                    <a className="passBlue" href="/reset">Forgot your password?</a>
                                 </button>
                             </div>
                         </form>
                     </div>
+
                     <div className="create">
                         <div className="item">
                             <h2>New Customer?</h2>
-                            <p>Create an account with us and you'll be able to:</p>
+                            <p>By creating an account, you will be able to:</p>
                             <ul>
                                 <li>Check out faster</li>
                                 <li>Save multiple shipping addresses</li>
@@ -58,10 +89,8 @@ const Account = () => {
                                 <li>Save items to your Wish List</li>
                             </ul>
                             <div className="buttons">
-                                <button
-                                    className="button"
-                                >
-                                    <Link to="/create" className='white'>CREATE ACCOUNT</Link>
+                                <button className="button">
+                                    <a href="/register" className="white">CREATE ACCOUNT</a>
                                 </button>
                             </div>
                         </div>
@@ -69,7 +98,7 @@ const Account = () => {
                 </div>
             </div>
         </section>
-    )
-}
+    );
+};
 
-export default Account
+export default Account;

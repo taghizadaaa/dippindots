@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Img from "../assets/Images/happy-holidays-hpc.webp";
+import { Link } from 'react-router';
 
 const CardInfo = () => {
     const [quantity, setQuantity] = useState(1);
@@ -58,7 +59,8 @@ const CardInfo = () => {
                             </div>
                             <div className="buttons">
                                 <button type="submit" className="button">
-                                    ADD TO CART
+                                    <Link className='white' to="/edit">ADD TO CART</Link>
+                                    
                                 </button>
                                 <span className="border"></span>
                             </div>

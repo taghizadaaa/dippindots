@@ -5,94 +5,95 @@
     list-style-type: none;
     font-family: "Pacifico", cursive;
     text-decoration: none;
-}
-
-section {
+  }
+  
+  section {
     padding: 69px 0;
-}
-
-.container {
+  }
+  
+  .container {
     width: 90%;
     margin: 0 auto;
-}
-
-.white {
+  }
+  
+  .white {
     color: #fff;
-
+  
     &:hover {
-        color: #00369D;
+      color: #00369D;
     }
-}
-
-.blue {
+  }
+  
+  .blue {
     color: #00369D;
-
+  
     &:hover {
-        color: #fff;
+      color: #fff;
     }
-}
-
-.passBlue {
+  }
+  
+  .passBlue {
     color: #00369D;
-
+    cursor: pointer;
+  
     &:hover {
-        color: #4496f6;
+      color: #4496f6;
     }
-}
-
-.whiteLink {
+  }
+  
+  .whiteLink {
     color: #fff;
     font-size: 14px;
     transition: 0.3s ease-in-out;
-}
-
-.whiteLink:hover {
     border: 1px solid transparent;
-    border-radius: 20px;
-    background-color: rgba(255, 255, 255, .1);
     padding: 5px;
-}
-
-.blueLink {
+  
+    &:hover {
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, .1);
+    }
+  }
+  
+  .blueLink {
     color: #00369D;
     font-size: 14px;
     transition: 0.3s ease-in-out;
-}
-
-.classBlue {
-    color: #00369D;
-}
-
-.blueLink:hover {
-    border: 1px solid transparent;
-    border-radius: 20px;
-    background-color: rgba(100, 100, 100, 0.2);
     padding: 5px;
-}
-
-.contactLink {
+    border: 1px solid transparent;
+  
+    &:hover {
+      border-radius: 20px;
+      background-color: rgba(100, 100, 100, 0.2);
+      padding: 5px;
+    }
+  }
+  
+  .classBlue {
+    color: #00369D;
+  }
+  
+  .contactLink {
     transition: 0.3s ease-in-out;
     font-size: 14px;
     color: #fff;
     border: 1px dashed #fff;
     border-radius: 20px;
     padding: 6px;
-}
-
-.contactLink:hover {
-    color: #00369D;
-    padding: 6px;
-    border: 1px solid #fff;
-    border-radius: 20px;
-    background-color: #fff;
-}
-
-.footerLink {
+  
+    &:hover {
+      color: #00369D;
+      padding: 6px;
+      border: 1px solid #fff;
+      background-color: #fff;
+    }
+  }
+  
+  .footerLink {
     color: #6FB3E3;
     font-family: sans-serif;
-}
-
-.button {
+  }
+  
+  .button {
     padding: 10px;
     color: #fff;
     background-color: #00369D;
@@ -103,9 +104,19 @@ section {
     z-index: 1;
     cursor: pointer;
     transition: 0.1s ease-in-out;
-}
-
-.border {
+  
+    &:hover {
+      background-color: transparent;
+      color: #00369D;
+  
+      + .border {
+        left: 0;
+        bottom: 0;
+      }
+    }
+  }
+  
+  .border {
     display: inline-block;
     padding: 8px 62px;
     border: 1px dashed #fff;
@@ -116,20 +127,10 @@ section {
     position: absolute;
     bottom: -6px;
     transition: 0.3s ease-in-out;
-}
-
-.button:hover {
-    background-color: transparent;
-    color: #00369D;
-}
-
-.button:hover+.border {
-    left: 0;
-    bottom: 0;
-}
-
-.swiper-button-next,
-.swiper-button-prev {
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
     color: #fff;
     font-size: 20px;
     background: #00369D;
@@ -139,25 +140,75 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.swiper-button-next:hover,
-.swiper-button-prev:hover {
-    background: black;
-    color: #fff;
-    transform: scale(1.1);
-    transition: all 0.3s ease;
-}
-
-
-.swiper-button-next {
+  
+    &:hover {
+      background: black;
+      color: #fff;
+      transform: scale(1.1);
+      transition: all 0.3s ease;
+    }
+  }
+  
+  .swiper-button-next {
     right: 10px;
-}
-
-.swiper-button-prev {
+  }
+  
+  .swiper-button-prev {
     left: 10px;
-}
-
-.swiper-pagination {
+  }
+  
+  .swiper-pagination {
     text-align: center;
-}
+  }
+  
+  
+  .accountWrapper {
+    position: relative;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .accountHover {
+    display: inline-block;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  
+  .accountDropdown {
+    display: none; 
+    position: absolute;
+    border: 1px solid #00369D;
+    border-radius: 10px;
+    top: 100%;
+    left: 0;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    transition: 0.2s ease-in-out;
+  
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      transition: 0.2s ease-in-out;
+  
+      li {
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: 0.2s ease-in-out;
+  
+        button {
+          width: 100%;
+          color: #00369D;
+          background-color: transparent;
+          border: none;
+          cursor: pointer;
+          transition: 0.2s ease-in-out;
+        }
+      }
+    }
+  }
+  
+  .accountHover:hover .accountDropdown {
+    display: block;
+  }
+  
