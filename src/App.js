@@ -25,6 +25,8 @@ const App = () => {
     })
   }, [location.pathname])
 
+console.log(`${process.env.REACT_APP_DEFAULt}${process.env.REACT_APP_GET_ALL_PRODUCTS}`)
+
   return (
     <React.Fragment>
       <Header />
