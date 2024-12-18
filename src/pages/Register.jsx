@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const Register = () => {
     const [email, setEmail] = useState('');
@@ -54,8 +54,7 @@ const Register = () => {
 
                 
                 localStorage.setItem('token', loginData.access_token);
-                alert('Account successfully created and logged in!');
-                navigate('/'); 
+                alert('Account successfully created!'); 
             } catch (err) {
                 setError(err.message || 'An error occurred, please try again!');
             }
@@ -96,7 +95,7 @@ const Register = () => {
                         </div>
                         <div className="buttons">
                             <button type='submit' className="button">
-                                CREATE ACCOUNT
+                                <Link className="white" to="/account">CREATE ACCOUNT</Link>
                             </button>
                         </div>
                     </form>

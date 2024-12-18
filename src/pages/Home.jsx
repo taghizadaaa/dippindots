@@ -150,7 +150,7 @@ const Home = () => {
                   <button
                     className="button"
                   >
-                    FIND A LOCATION
+                    <Link className='white' to="/location">FIND A LOCATION</Link>
                   </button>
                   <span className="border"></span>
                 </div>
