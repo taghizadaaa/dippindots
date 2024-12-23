@@ -1,94 +1,86 @@
-import React, { useState } from 'react';
+import React from "react";
 
-const EditCart = () => {
-    const [products, setProducts] = useState([
-        { id: 1, name: 'Product 1', price: 10, quantity: 1 },
-        { id: 2, name: 'Product 2', price: 20, quantity: 1 },
-    ]);
+const EditCart = ({ cart, updateCartItem, removeFromCart }) => {
+  // Filter out duplicate items based on their `id`
+  const uniqueCartItems = cart.filter((value, index, self) =>
+    index === self.findIndex((t) => t.id === value.id)
+  );
 
-    const increment = (id) => {
-        setProducts((prevProducts) =>
-            prevProducts.map((product) =>
-                product.id === id
-                    ? { ...product, quantity: product.quantity + 1 }
-                    : product
-            )
-        );
-    };
+  // Calculate total for unique cart items
+  const total = uniqueCartItems.reduce(
+    (sum, item) => sum + (Number(item.price) || 0) * item.quantity,
+    0
+  );
 
-    const decrement = (id) => {
-        setProducts((prevProducts) =>
-            prevProducts.map((product) =>
-                product.id === id && product.quantity > 1
-                    ? { ...product, quantity: product.quantity - 1 }
-                    : product
-            )
-        );
-    };
-
-    const removeProduct = (id) => {
-        setProducts((prevProducts) =>
-            prevProducts.filter((product) => product.id !== id)
-        );
-    };
-
-    const total = products.reduce((sum, product) => sum + product.price * product.quantity, 0);
-
-    return (
-        <section className="editCart">
-            <div className="container">
-                <div className="items">
-                    <div className="yourCart">
-                        <h1>Your Cart</h1>
-                        {products.length > 0 ? (
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Item</th>
-                                        <th className='middle'>Price</th>
-                                        <th className='middle'>Qty</th>
-                                        <th className='end'>Total</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {products.map((product) => (
-                                        <tr key={product.id}>
-                                            <td>{product.name}</td>
-                                            <td className='middle'>${product.price.toFixed(2)}/each</td>
-                                            <td className='middle quantityButton'>
-                                                <div className="quantityControl">
-                                                    <button onClick={() => decrement(product.id)}>-</button>
-                                                    <span>{product.quantity}</span>
-                                                    <button onClick={() => increment(product.id)} className='reverse'>+</button>
-                                                </div>
-                                            </td>
-                                            <td className='remove end'>
-                                                ${(product.price * product.quantity).toFixed(2)}
-                                                <button className='cartRemove' onClick={() => removeProduct(product.id)}>Remove</button>
-                                            </td>
-                                        </tr>
-                                    ))}
-                                </tbody>
-                            </table>
-                        ) : (
-                            <p>Your cart is empty.</p>
-                        )}
-                    </div>
-                    {products.length > 0 && (
-                        <div className="total">
-                            <h2>Total:  ${total.toFixed(2)}</h2>
-                            <div className="buttons">
-                                <button type="submit" className="button">
-                                    PROCEED TO CHECKOUT
-                                </button>
-                                <span className="border"></span>
-                            </div>
+  return (
+    <section className="editCart">
+      <div className="container">
+        <div className="items">
+          <div className="yourCart">
+            <h1>Your Cart</h1>
+            {uniqueCartItems.length > 0 ? (
+              <table>
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th className="middle">Price</th>
+                    <th className="middle">Qty</th>
+                    <th className="end">Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {uniqueCartItems.map((item) => (
+                    <tr key={item.id}>
+                      <td>{item.name}</td>
+                      <td className="middle">
+                        ${Number(item.price || 0).toFixed(2)}/each
+                      </td>
+                      <td className="middle quantityButton">
+                        <div className="quantityControl">
+                          <button onClick={() => updateCartItem(item.id, "decrement")}>
+                            -
+                          </button>
+                          <span>{item.quantity}</span>
+                          <button
+                            onClick={() => updateCartItem(item.id, "increment")}
+                            className="reverse"
+                          >
+                            +
+                          </button>
                         </div>
-                    )}
-                </div>
+                      </td>
+                      <td className="remove end">
+                        ${((Number(item.price) || 0) * item.quantity).toFixed(2)}
+                        <button
+                          className="cartRemove"
+                          onClick={() => removeFromCart(item.id)}
+                        >
+                          Remove
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            ) : (
+              <p>Your cart is empty.</p>
+            )}
+          </div>
+          {uniqueCartItems.length > 0 && (
+            <div className="total">
+              <h2>Total: ${total.toFixed(2)}</h2>
+              <div className="buttons">
+                <button type="submit" className="button">
+                  PROCEED TO CHECKOUT
+                </button>
+                <span className="border"></span>
+              </div>
             </div>
-        </section>
-    );
+          )}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default EditCart;

@@ -46,13 +46,6 @@ const Shop = () => {
             </div>
             <div className="cardBox">
               <ShopProducts />
-              <ShopProducts />
-              <ShopProducts />
-              <ShopProducts />
-              <ShopProducts />
-              <ShopProducts />
-              <ShopProducts />
-              <ShopProducts />
             </div>
           </div>
         </div>

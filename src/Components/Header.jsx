@@ -1,30 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaRegUserCircle } from 'react-icons/fa';
-import { FaShoppingCart } from 'react-icons/fa';
+import { FaRegUserCircle, FaShoppingCart } from 'react-icons/fa';
 import logo from '../assets/Images/logo-dippin-dots-official.png';
 import iceLeft from '../assets/Images/ice-cap-left.svg';
 import iceRight from '../assets/Images/ice-cap-right.svg';
 
-const Header = () => {
+const Header = ({ cart, clearCart }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('token') ? true : false);
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const navigate = useNavigate();
 
-
   useEffect(() => {
-    if (localStorage.getItem('token')) {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
+    setIsLoggedIn(!!localStorage.getItem('token'));
   }, []);
-
 
   const handleLogOut = () => {
     localStorage.removeItem('token');
     setIsLoggedIn(false);
+    clearCart(); // Clear the cart
     navigate('/account');
   };
 
@@ -37,31 +31,41 @@ const Header = () => {
   const toggleCart = () => setIsCartOpen(!isCartOpen);
   const closeCart = () => setIsCartOpen(false);
 
-
   const handleViewEditCart = () => {
     closeCart();
     navigate('/edit');
   };
 
+  // Filter out duplicate items based on their `id`
+  const uniqueCartItems = cart.filter(
+    (value, index, self) => index === self.findIndex((t) => t.id === value.id)
+  );
+
   return (
     <header>
       <div className="top">
-        <div className="account" style={{ position: 'relative' }}
+        <div
+          className="account"
+          style={{ position: 'relative' }}
           onMouseEnter={() => setIsDropdownVisible(true)}
-          onMouseLeave={() => setIsDropdownVisible(false)}>
+          onMouseLeave={() => setIsDropdownVisible(false)}
+        >
           {isLoggedIn ? (
             <div className="accountWrapper">
               <div className="blueLink accountHover" onClick={handleAccountClick}>
                 <FaRegUserCircle /> ACCOUNT
-
                 {isDropdownVisible && (
                   <div className="accountDropdown">
                     <ul>
                       <li>
-                        <Link to="/edit" className='passBlue'>Orders</Link>
+                        <Link to="/edit" className="passBlue">
+                          Orders
+                        </Link>
                       </li>
                       <li>
-                        <button onClick={handleLogOut} className='passBlue'>Log Out</button>
+                        <button onClick={handleLogOut} className="passBlue">
+                          Log Out
+                        </button>
                       </li>
                     </ul>
                   </div>
@@ -76,21 +80,32 @@ const Header = () => {
         </div>
 
         <div className="cart">
-          <Link className="blueLink" onClick={toggleCart}>
+          <button className="button" onClick={toggleCart}>
             <FaShoppingCart /> CART
-          </Link>
+            {uniqueCartItems.length > 0 && (
+              <span className="quantityBadge">{uniqueCartItems.length}</span>
+            )}
+          </button>
         </div>
+
 
         {isCartOpen && (
           <>
             <div className="modalBackground" onClick={closeCart}></div>
             <div className="cartDrop">
-              <h5>Your cart contains item</h5>
+              <h5>Your cart contains {uniqueCartItems.length} item(s)</h5>
               <div className="content">
                 <div className="checkout">
                   <h5 className="subtotal">
-                    Order subtotal <strong>Price</strong>
+                    Order subtotal:{" "}
+                    <strong>
+                      $
+                      {uniqueCartItems
+                        .reduce((acc, product) => acc + (parseFloat(product.price) || 0) * product.quantity, 0)
+                        .toFixed(2)}
+                    </strong>
                   </h5>
+
                   <div className="buttons">
                     <button onClick={handleViewEditCart}>
                       <Link to="/edit" className="blue">
@@ -101,18 +116,19 @@ const Header = () => {
                 </div>
                 <hr />
                 <ul className="products">
-                  <li>
-                    <Link>
-                      <img src={logo} alt="Product" />
-                    </Link>
-                    <div className="cnt">
-                      <h3>Banana Split Ice Cream</h3>
-                      <p>Count x Price</p>
-                      <div className="options">
-                        <p>Size: Bulk Bag</p>
+                  {uniqueCartItems.map((product, index) => (
+                    <li key={index}>
+                      <img
+                        src={`http://localhost:8080/${product.productImage}`}
+                        alt={product.name}
+                      />
+                      <div className="cnt">
+                        <h3>{product.name}</h3>
+                        <p>Price: ${product.price}</p>
+                        <p>Size: {product.size || "Bulk Bag"}</p>
                       </div>
-                    </div>
-                  </li>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
@@ -120,6 +136,7 @@ const Header = () => {
         )}
       </div>
 
+      {/* Navigation */}
       <div className="ice">
         <div className="left">
           <img src={iceLeft} alt="Ice" />
@@ -137,16 +154,46 @@ const Header = () => {
             </Link>
           </div>
           <ul>
-            <li><Link className="whiteLink" to="/shop">SHOP</Link></li>
-            <li><Link className="whiteLink" to="/flavors">FLAVORS</Link></li>
-            <li><Link className="whiteLink" to="/location">LOCATIONS</Link></li>
-            <li><Link className="whiteLink" to="/recipes">RECIPES</Link></li>
-            <li><Link className="whiteLink" to="/events">EVENTS</Link></li>
-            <li><Link className="whiteLink" to="/sell">SELL</Link></li>
-            <li><Link className="whiteLink" to="/email-club">DOT CRAZY! EMAIL CLUB</Link></li>
+            <li>
+              <Link className="whiteLink" to="/shop">
+                SHOP
+              </Link>
+            </li>
+            <li>
+              <Link className="whiteLink" to="/flavors">
+                FLAVORS
+              </Link>
+            </li>
+            <li>
+              <Link className="whiteLink" to="/location">
+                LOCATIONS
+              </Link>
+            </li>
+            <li>
+              <Link className="whiteLink" to="/recipes">
+                RECIPES
+              </Link>
+            </li>
+            <li>
+              <Link className="whiteLink" to="/events">
+                EVENTS
+              </Link>
+            </li>
+            <li>
+              <Link className="whiteLink" to="/sell">
+                SELL
+              </Link>
+            </li>
+            <li>
+              <Link className="whiteLink" to="/email-club">
+                DOT CRAZY! EMAIL CLUB
+              </Link>
+            </li>
           </ul>
           <div className="contact">
-            <Link className="contactLink" to="/contact">CONTACT US</Link>
+            <Link className="contactLink" to="/contact">
+              CONTACT US
+            </Link>
           </div>
         </nav>
       </div>
