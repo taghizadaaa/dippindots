@@ -323,7 +323,13 @@ header {
     }
 }
 
-
+@media (max-width: 835px) {
+    .ice {
+        .right {
+            display: none !important;
+        }
+    }
+}
 
 
 @media (max-width: 385px) {

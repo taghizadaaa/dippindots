@@ -45,7 +45,6 @@ const Header = ({ cart, clearCart }) => {
     setIsBurgerMenuActive(!isBurgerMenuActive);
   };
 
-  // Function to close the burger menu after clicking a link
   const closeBurgerMenu = () => {
     setIsBurgerMenuActive(false);
   };

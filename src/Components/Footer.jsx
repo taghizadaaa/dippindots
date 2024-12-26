@@ -31,11 +31,11 @@ const Footer = () => {
                 <span>
                   Get Dippin' Dots
                 </span>
-                <li>Products</li>
-                <li>Locations</li>
+                <li><Link className='grey' to="/shop">Products</Link></li>
+                <li ><Link className='grey' to="/location">Locations</Link></li>
                 <li>Return Policy</li>
                 <li>Dot Crazy! Email Club</li>
-                <li>Your Online Order</li>
+                <li><Link className='grey' to="/edit">Your Online Order</Link></li>
                 <li>Online Ordering Policy</li>
               </ul>
               <ul>
@@ -47,7 +47,7 @@ const Footer = () => {
                 <li>Dippin' Dots Distribution</li>
                 <li>International</li>
                 <li>Fundraising & Catering</li>
-                <li>Contact Us</li>
+                <li><Link className='grey' to="/contact">Contact Us</Link></li>
               </ul>
               <ul>
                 <span>

@@ -7,7 +7,7 @@ const CardInfo = ({ addToCart, cart = [], updateCartItem }) => {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [quantity, setQuantity] = useState(1); // Local state for quantity control
+  const [quantity, setQuantity] = useState(1); 
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -15,10 +15,9 @@ const CardInfo = ({ addToCart, cart = [], updateCartItem }) => {
         const response = await axios.get(`http://localhost:8080/api/products/${id}`);
         setProduct(response.data);
 
-        // Check if the product is already in the cart and set the quantity accordingly
         const cartItem = cart.find((item) => item.id === id);
         if (cartItem) {
-          setQuantity(cartItem.quantity); // Set the quantity from the cart
+          setQuantity(cartItem.quantity); 
         }
       } catch (err) {
         setError("Failed to fetch product details");
@@ -36,9 +35,9 @@ const CardInfo = ({ addToCart, cart = [], updateCartItem }) => {
     const isProductInCart = cart.some((cartItem) => cartItem.id === product.id);
 
     if (isProductInCart) {
-      updateCartItem(product.id, "increment"); // Increment quantity if the product is already in the cart
+      updateCartItem(product.id, "increment"); 
     } else {
-      addToCart({ ...product, quantity }); // Add product with the current quantity
+      addToCart({ ...product, quantity }); 
     }
   };
 

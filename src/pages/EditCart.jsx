@@ -1,12 +1,10 @@
 import React from "react";
 
 const EditCart = ({ cart, updateCartItem, removeFromCart }) => {
-  // Filter out duplicate items based on their `id`
   const uniqueCartItems = cart.filter((value, index, self) =>
     index === self.findIndex((t) => t.id === value.id)
   );
 
-  // Calculate total for unique cart items
   const total = uniqueCartItems.reduce(
     (sum, item) => sum + (Number(item.price) || 0) * item.quantity,
     0

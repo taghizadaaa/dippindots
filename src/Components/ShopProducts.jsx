@@ -1,30 +1,34 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const ShopProducts = () => {
+const ShopProducts = ({ products: externalProducts }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await axios.get("http://localhost:8080/api/products");
-        setProducts(response.data); 
-      } catch (err) {
-        setError("Failed to fetch products");
-      } finally {
-        setLoading(false);
-      }
-    };
+    // Fetch products only if they are not provided as a prop
+    if (!externalProducts) {
+      const fetchProducts = async () => {
+        try {
+          const response = await axios.get("http://localhost:8080/api/products");
+          setProducts(response.data);
+        } catch (err) {
+          setError("Failed to fetch products");
+        } finally {
+          setLoading(false);
+        }
+      };
+      fetchProducts();
+    } else {
+      setProducts(externalProducts);
+      setLoading(false);
+    }
+  }, [externalProducts]);
 
-    fetchProducts();
-  }, []); 
-
-  if (loading) return <p>Loading...</p>; 
-  if (error) return <p>{error}</p>; 
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
     <div className="shop-products">
@@ -34,7 +38,7 @@ const ShopProducts = () => {
             <div className="items">
               <div className="cardImg">
                 <img
-                  src={`http://localhost:8080/${product.productImage}`} 
+                  src={`http://localhost:8080/${product.productImage}`}
                   alt={product.name}
                 />
               </div>

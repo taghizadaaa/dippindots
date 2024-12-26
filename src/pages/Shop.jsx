@@ -1,7 +1,38 @@
-import React from 'react'
-import ShopProducts from '../Components/ShopProducts'
+import React, { useState, useEffect } from 'react';
+import ShopProducts from '../Components/ShopProducts';
 
 const Shop = () => {
+  const [products, setProducts] = useState([]);
+  const [sortOption, setSortOption] = useState('a-z');
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/api/products');
+        if (!response.ok) {
+          throw new Error('Failed to fetch products');
+        }
+        const data = await response.json();
+        setProducts(data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  const sortedProducts = [...products].sort((a, b) => {
+    if (sortOption === 'a-z') return a.name.localeCompare(b.name);
+    if (sortOption === 'z-a') return b.name.localeCompare(a.name);
+    return 0;
+  });
+
+  const handleSortChange = (e) => {
+    setSortOption(e.target.value);
+  };
+
   return (
     <section className="shopProducts">
       <div className="container">
@@ -17,41 +48,39 @@ const Shop = () => {
               <form>
                 <label>Filter by:</label>
                 <select name="type" id="type">
-                  <option value="" disabled selected>Product Type</option>
-                  <option value="cream">
-                    Ice Cream
+                  <option value="" disabled selected>
+                    Product Type
                   </option>
-                  <option value="ice">
-                    Ice
-                  </option>
-                  <option value="yogurt">
-                    Frozen Yogurt
-                  </option>
+                  <option value="cream">Ice Cream</option>
+                  <option value="ice">Ice</option>
+                  <option value="yogurt">Frozen Yogurt</option>
                 </select>
                 <select name="type" id="type">
-                  <option value="" disabled selected>Size</option>
-                  <option value="bulk">
-                    Bulk Bag
+                  <option value="" disabled selected>
+                    Size
                   </option>
-                  <option value="single">
-                    Single Serving
-                  </option>
+                  <option value="bulk">Bulk Bag</option>
+                  <option value="single">Single Serving</option>
                 </select>
                 <label>Sort by:</label>
-                <select name="sort" id="sort">
+                <select name="sort" id="sort" onChange={handleSortChange}>
                   <option value="a-z">A to Z</option>
                   <option value="z-a">Z to A</option>
                 </select>
               </form>
             </div>
             <div className="cardBox">
-              <ShopProducts />
+              {error ? (
+                <p>Error: {error}</p>
+              ) : (
+                <ShopProducts products={sortedProducts} />
+              )}
             </div>
           </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default Shop
+export default Shop;
