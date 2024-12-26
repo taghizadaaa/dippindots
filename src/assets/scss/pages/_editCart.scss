@@ -141,3 +141,11 @@
         }
     }
 }
+@media (max-width: 991px) and (min-width: 300px) {
+    .items {
+        flex-direction: column;
+        .yourCart {
+            width: 100% !important;
+        }
+    }
+}

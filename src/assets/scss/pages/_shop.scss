@@ -42,3 +42,14 @@
         }
     }
 }
+@media (max-width: 385px) {
+    .shopProducts {
+        .item {
+            margin-top: 40px;
+            h1 {
+                width: 100%;
+                font-size: 3rem !important;
+            }
+        }
+    }
+}

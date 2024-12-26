@@ -26,19 +26,20 @@
         h1 {
             text-transform: uppercase;
             font-size: 2rem;
-            color: #fff;
+            color: black;
             margin-bottom: 20px;
         }
 
         p {
             font-size: 1.125rem;
-            color: #fff;
+            color: black;
             margin-bottom: 20px;
         }
     }
 
     .two,
     .four {
+
         .button {
             background-color: #4496f6;
             color: #fff;
@@ -56,6 +57,7 @@
 
     .five,
     .three {
+
         .button {
             background-color: #00369D;
 
@@ -80,6 +82,7 @@
 
         .img {
             width: 50%;
+
             img {
                 width: 100%;
             }
@@ -136,6 +139,7 @@
     .items {
         display: flex;
         align-items: center;
+
         .info {
             width: 50%;
             position: relative;
@@ -145,6 +149,7 @@
                 display: flex;
                 flex-direction: column;
                 position: relative;
+
                 h1 {
                     font-size: 3rem;
                     line-height: 3.25rem;
@@ -215,7 +220,7 @@
 
             .item {
                 position: relative;
-                left: 15px;
+
                 padding: 0 20px;
 
                 .img {
@@ -484,13 +489,16 @@
         }
     }
 }
+
 @media (max-width: 1289px) and (min-width: 991px) {
-    .slideImg  {
+    .slideImg {
         object-fit: cover !important;
     }
+
     .info {
         .content {
             margin-left: 50px;
+
             h2 {
                 color: #00369D;
                 font-size: 1.5rem !important;
@@ -508,9 +516,11 @@
             }
         }
     }
+
     .opportunities {
         .content {
-            margin-left: -30px;
+
+
             h1 {
                 color: #fff;
                 font-size: 2rem !important;
@@ -528,4 +538,178 @@
             }
         }
     }
+}
+
+@media (max-width: 385px) {
+    .items {
+        top: 150px !important;
+        z-index: 1;
+        width: 250px;
+        left: 80px;
+
+        h1 {
+            font-size: .7rem !important;
+            width: 150px;
+        }
+
+        p {
+            width: 200px;
+            font-size: .7rem !important;
+        }
+    }
+}
+
+@media (max-width: 991px) and (min-width: 300px) {
+    .home {
+        .slideImg {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            position: relative;
+            z-index: 0;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 20px;
+        }
+        .items {
+            top: 110px;
+            z-index: 1;
+            width: 250px;
+            left: 80px;
+    
+            h1 {
+                font-size: 1rem;
+            }
+    
+            p {
+                font-size: .8rem;
+            }
+        }
+    }
+    
+    .info {
+        .infoItems {
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+    
+            .img {
+                width: 100%;
+            }
+    
+            .content {
+                width: 100%;
+                text-align: center;
+            }
+    
+            .buttons {
+                width: 100%;
+    
+                button {
+                    width: 100%;
+                }
+    
+                .border {
+                    width: 100% !important;
+                }
+            }
+        }
+    }
+    
+    .location {
+        .items {
+            flex-direction: column;
+            justify-content: center !important;
+            align-items: center !important;
+            left: 0px;
+    
+            .info {
+                position: relative;
+                left: 0;
+                width: 100%;
+                text-align: center;
+                margin: 0;
+    
+                h1 {
+                    width: 100%;
+                }
+    
+                p {
+                    width: 100% !important;
+                }
+    
+                .buttons {
+                    width: 100%;
+    
+                    button {
+                        width: 100%;
+                    }
+    
+                    .border {
+                        width: 100% !important;
+                    }
+                }
+            }
+    
+            .img {
+                width: 100%;
+    
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+    
+    .opportunities {
+        .items {
+    
+            .leftCards,
+            .rightCards {
+                display: none !important;
+            }
+    
+            .middleCards {
+                padding-bottom: 40px;
+                width: 100%;
+    
+                .item {
+                    width: 100% !important;
+                    left: 0;
+    
+                    .content {
+                        width: 100% !important;
+    
+                        p {
+                            width: 100%;
+                            margin: 0 auto !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    .desserts {
+        .items {
+            flex-direction: column;
+    
+            .left {
+                width: 100%;
+            }
+    
+            .right {
+                width: 100%;
+            }
+        }
+    }    
 }

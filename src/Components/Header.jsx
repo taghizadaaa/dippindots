@@ -63,7 +63,7 @@ const Header = ({ cart, clearCart }) => {
                 </Link>
               </li>
               <li>
-                <Link className="whiteLink" to="/flavors" onClick={closeBurgerMenu}>
+                <Link className="whiteLink" onClick={closeBurgerMenu}>
                   FLAVORS
                 </Link>
               </li>
@@ -73,7 +73,7 @@ const Header = ({ cart, clearCart }) => {
                 </Link>
               </li>
               <li>
-                <Link className="whiteLink" to="/recipes" onClick={closeBurgerMenu}>
+                <Link className="whiteLink" onClick={closeBurgerMenu}>
                   RECIPES
                 </Link>
               </li>
@@ -83,12 +83,12 @@ const Header = ({ cart, clearCart }) => {
                 </Link>
               </li>
               <li>
-                <Link className="whiteLink" to="/sell" onClick={closeBurgerMenu}>
+                <Link className="whiteLink" onClick={closeBurgerMenu}>
                   SELL
                 </Link>
               </li>
               <li>
-                <Link className="whiteLink" to="/email-club" onClick={closeBurgerMenu}>
+                <Link className="whiteLink" onClick={closeBurgerMenu}>
                   DOT CRAZY! EMAIL CLUB
                 </Link>
               </li>
@@ -98,9 +98,42 @@ const Header = ({ cart, clearCart }) => {
                 CONTACT US
               </Link>
             </div>
+            <div
+              className="account"
+              onMouseEnter={() => setIsDropdownVisible(true)}
+              onMouseLeave={() => setIsDropdownVisible(false)}
+              style={{ position: 'relative' }}
+            >
+              {isLoggedIn ? (
+                <div className="accountWrapper">
+                  <div className="blueLink accountHover" onClick={handleAccountClick}>
+                    <FaRegUserCircle /> ACCOUNT
+                    {isDropdownVisible && (
+                      <div className="accountDropdown">
+                        <ul>
+                          <li>
+                            <Link to="/edit" className="passBlue">
+                              Orders
+                            </Link>
+                          </li>
+                          <li>
+                            <button onClick={handleLogOut} className="passBlue">
+                              Log Out
+                            </button>
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ) : (
+                <Link className="blueLink" to="/account">
+                  <FaRegUserCircle /> ACCOUNT
+                </Link>
+              )}
+            </div>
           </div>
         </div>
-
         <div
           className="account"
           onMouseEnter={() => setIsDropdownVisible(true)}
@@ -135,7 +168,6 @@ const Header = ({ cart, clearCart }) => {
             </Link>
           )}
         </div>
-
         <div className="cart">
           <button className="button" onClick={toggleCart}>
             <FaShoppingCart /> CART
@@ -214,7 +246,7 @@ const Header = ({ cart, clearCart }) => {
               </Link>
             </li>
             <li>
-              <Link className="whiteLink" to="/flavors">
+              <Link className="whiteLink" >
                 FLAVORS
               </Link>
             </li>
@@ -224,7 +256,7 @@ const Header = ({ cart, clearCart }) => {
               </Link>
             </li>
             <li>
-              <Link className="whiteLink" to="/recipes">
+              <Link className="whiteLink">
                 RECIPES
               </Link>
             </li>
@@ -234,12 +266,12 @@ const Header = ({ cart, clearCart }) => {
               </Link>
             </li>
             <li>
-              <Link className="whiteLink" to="/sell">
+              <Link className="whiteLink" >
                 SELL
               </Link>
             </li>
             <li>
-              <Link className="whiteLink" to="/email-club">
+              <Link className="whiteLink" >
                 DOT CRAZY! EMAIL CLUB
               </Link>
             </li>

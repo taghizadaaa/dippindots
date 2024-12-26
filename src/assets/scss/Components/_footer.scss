@@ -146,3 +146,18 @@ footer {
         }
     }
 }
+
+@media (max-width: 991px) and (min-width: 300px) {
+    .footerItems {
+        flex-direction: column-reverse !important;
+        .footerInfo {
+            width: 100% !important;
+            .top {
+                flex-wrap: wrap;
+            }
+        }
+        .email {
+            width: 100% !important;
+        }
+    }
+}

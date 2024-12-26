@@ -23,7 +23,6 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 
 const Home = () => {
-  const [isHovered, setIsHovered] = useState(false);
   useEffect(() => {
     AOS.init({
       duration: 1200,
@@ -125,8 +124,6 @@ const Home = () => {
               <div className="buttons">
                 <button
                   className="button"
-                  onMouseEnter={() => setIsHovered(true)}
-                  onMouseLeave={() => setIsHovered(false)}
                 >
                   <Link className="white" to="/shop">
                     SHOP NOW
