@@ -80,6 +80,9 @@
 
         .img {
             width: 50%;
+            img {
+                width: 100%;
+            }
         }
 
         .content {
@@ -477,6 +480,51 @@
                 left: -10px;
                 top: -40px;
 
+            }
+        }
+    }
+}
+@media (max-width: 1289px) and (min-width: 991px) {
+    .slideImg  {
+        object-fit: cover !important;
+    }
+    .info {
+        .content {
+            margin-left: 50px;
+            h2 {
+                color: #00369D;
+                font-size: 1.5rem !important;
+            }
+
+            p {
+                margin: 20px 0 !important;
+                font-size: 13px;
+
+
+                b {
+                    font-family: sans-serif;
+                    font-weight: 570;
+                }
+            }
+        }
+    }
+    .opportunities {
+        .content {
+            margin-left: -30px;
+            h1 {
+                color: #fff;
+                font-size: 2rem !important;
+                margin-bottom: 20px;
+            }
+
+            p {
+                color: #fff;
+                text-align: center;
+                font-size: .65rem !important;
+                width: 550px;
+                font-family: sans-serif;
+                line-height: 30px;
+                margin-bottom: 10px;
             }
         }
     }

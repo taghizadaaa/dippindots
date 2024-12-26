@@ -105,7 +105,7 @@ const Home = () => {
         <div className="container">
           <div className="infoItems">
             <div className="img">
-              <img src={infoImg} alt="" />
+              <img src={infoImg} alt="Shipping" />
             </div>
             <div className="content">
               <h2>Holiday Shipping Info</h2>

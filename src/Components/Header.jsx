@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { FaRegUserCircle, FaShoppingCart } from 'react-icons/fa';
+import { FaRegUserCircle, FaShoppingCart, FaBars } from 'react-icons/fa';
 import logo from '../assets/Images/logo-dippin-dots-official.png';
 import iceLeft from '../assets/Images/ice-cap-left.svg';
 import iceRight from '../assets/Images/ice-cap-right.svg';
 
 const Header = ({ cart, clearCart }) => {
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('token') ? true : false);
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
   const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [isBurgerMenuActive, setIsBurgerMenuActive] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,7 +19,7 @@ const Header = ({ cart, clearCart }) => {
   const handleLogOut = () => {
     localStorage.removeItem('token');
     setIsLoggedIn(false);
-    clearCart(); // Clear the cart
+    clearCart();
     navigate('/account');
   };
 
@@ -36,19 +37,75 @@ const Header = ({ cart, clearCart }) => {
     navigate('/edit');
   };
 
-  // Filter out duplicate items based on their `id`
   const uniqueCartItems = cart.filter(
     (value, index, self) => index === self.findIndex((t) => t.id === value.id)
   );
 
+  const toggleBurgerMenu = () => {
+    setIsBurgerMenuActive(!isBurgerMenuActive);
+  };
+
+  // Function to close the burger menu after clicking a link
+  const closeBurgerMenu = () => {
+    setIsBurgerMenuActive(false);
+  };
+
   return (
     <header>
       <div className="top">
+        <div className="burgerMenu">
+          <button onClick={toggleBurgerMenu}><FaBars /></button>
+          <div className={`leftDiv ${isBurgerMenuActive ? 'active' : ''}`}>
+            <ul>
+              <li>
+                <Link className="whiteLink" to="/shop" onClick={closeBurgerMenu}>
+                  SHOP
+                </Link>
+              </li>
+              <li>
+                <Link className="whiteLink" to="/flavors" onClick={closeBurgerMenu}>
+                  FLAVORS
+                </Link>
+              </li>
+              <li>
+                <Link className="whiteLink" to="/location" onClick={closeBurgerMenu}>
+                  LOCATIONS
+                </Link>
+              </li>
+              <li>
+                <Link className="whiteLink" to="/recipes" onClick={closeBurgerMenu}>
+                  RECIPES
+                </Link>
+              </li>
+              <li>
+                <Link className="whiteLink" to="/events" onClick={closeBurgerMenu}>
+                  EVENTS
+                </Link>
+              </li>
+              <li>
+                <Link className="whiteLink" to="/sell" onClick={closeBurgerMenu}>
+                  SELL
+                </Link>
+              </li>
+              <li>
+                <Link className="whiteLink" to="/email-club" onClick={closeBurgerMenu}>
+                  DOT CRAZY! EMAIL CLUB
+                </Link>
+              </li>
+            </ul>
+            <div className="contact">
+              <Link className="contactLink" to="/contact" onClick={closeBurgerMenu}>
+                CONTACT US
+              </Link>
+            </div>
+          </div>
+        </div>
+
         <div
           className="account"
-          style={{ position: 'relative' }}
           onMouseEnter={() => setIsDropdownVisible(true)}
           onMouseLeave={() => setIsDropdownVisible(false)}
+          style={{ position: 'relative' }}
         >
           {isLoggedIn ? (
             <div className="accountWrapper">
@@ -88,7 +145,6 @@ const Header = ({ cart, clearCart }) => {
           </button>
         </div>
 
-
         {isCartOpen && (
           <>
             <div className="modalBackground" onClick={closeCart}></div>
@@ -105,7 +161,6 @@ const Header = ({ cart, clearCart }) => {
                         .toFixed(2)}
                     </strong>
                   </h5>
-
                   <div className="buttons">
                     <button onClick={handleViewEditCart}>
                       <Link to="/edit" className="blue">
@@ -136,7 +191,6 @@ const Header = ({ cart, clearCart }) => {
         )}
       </div>
 
-      {/* Navigation */}
       <div className="ice">
         <div className="left">
           <img src={iceLeft} alt="Ice" />

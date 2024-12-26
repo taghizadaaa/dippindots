@@ -5,7 +5,7 @@ header {
     z-index: 2;
 
     .modalBackground {
-        transition: all .4s ease;
+        transition: all 0.4s ease;
         position: fixed;
         top: 0;
         left: 0;
@@ -24,7 +24,67 @@ header {
         font-size: 1rem;
         padding: 10px 50px 10px 0;
         position: relative;
-        z-index: 1;
+        z-index: 2;
+
+        .account {
+            top: 7px;
+        }
+
+        .burgerMenu {
+            position: absolute !important;
+            left: 40px !important;
+            font-size: 25px;
+            color: #00369D;
+            transition: 0.3s ease-in-out;
+            width: 100vw;
+            padding-left: 40px;
+            display: none;
+          
+            .leftDiv {
+              position: absolute;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              width: 100vw;
+              left: -110%;
+              top: 50px;
+              padding: 40px;
+              height: 100vh;
+              background-color: #00369D;
+              transition: left 0.3s ease-in-out;
+          
+              &.active {
+                left: -40px;
+              }
+          
+              ul {
+                li {
+                  margin-bottom: 20px;
+                  .whiteLink {
+                    font-size: 20px;
+                  }
+                }
+              }
+            }
+          
+            button {
+              cursor: pointer;
+              border: none;
+              color: #00369D;
+              background-color: transparent;
+              font-size: 25px;
+              display: inline-block;
+              transition: 0.3s ease-in-out;
+          
+              &:hover {
+                transform: rotate(45deg);
+              }
+            }
+          
+            &.clicked .leftDiv {
+              display: inline-block;
+            }
+          }
 
         .cartDrop {
             width: 25rem;
@@ -96,7 +156,7 @@ header {
                         grid-template-columns: 1fr 1fr;
                         grid-template-rows: auto;
                         column-gap: 1rem;
-                        font-size: .875rem;
+                        font-size: 0.875rem;
                         margin-bottom: 1.25rem;
                         align-items: center;
 
@@ -110,7 +170,7 @@ header {
                             text-align: right;
 
                             h3 {
-                                margin: 0 0 .5rem;
+                                margin: 0 0 0.5rem;
                                 color: #00369D;
                                 font-size: 1.75rem;
                                 line-height: 1.875rem;
@@ -160,6 +220,44 @@ header {
                     transition: 0.3s ease-in-out;
                 }
             }
+        }
+    }
+}
+
+@media (max-width: 1289px) and (min-width: 991px) {
+    nav {
+        li {
+            margin-left: 0px !important;
+
+            .whiteLink {
+                font-size: 0.6em;
+            }
+        }
+
+        .contactLink {
+            font-size: 0.5rem;
+        }
+    }
+}
+
+@media (max-width: 991px) and (min-width: 601px) {
+    .burgerMenu {
+        display: inline-block !important;
+    }
+
+    nav {
+        ul {
+            display: none !important;
+        }
+
+        .contact {
+            display: none;
+        }
+
+        .logo {
+            width: 100%;
+            display: flex;
+            justify-content: center;
         }
     }
 }
