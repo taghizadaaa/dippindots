@@ -8,7 +8,6 @@ const ShopProducts = ({ products: externalProducts }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch products only if they are not provided as a prop
     if (!externalProducts) {
       const fetchProducts = async () => {
         try {

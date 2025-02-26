@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const EditCart = ({ cart, updateCartItem, removeFromCart }) => {
   const uniqueCartItems = cart.filter((value, index, self) =>
@@ -69,7 +70,7 @@ const EditCart = ({ cart, updateCartItem, removeFromCart }) => {
               <h2>Total: ${total.toFixed(2)}</h2>
               <div className="buttons">
                 <button type="submit" className="button">
-                  PROCEED TO CHECKOUT
+                  <Link to="/payment" className="white">PROCEED TO CHECKOUT</Link>
                 </button>
                 <span className="border"></span>
               </div>

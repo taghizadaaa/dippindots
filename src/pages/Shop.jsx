@@ -4,9 +4,12 @@ import ShopProducts from '../Components/ShopProducts';
 const Shop = () => {
   const [products, setProducts] = useState([]);
   const [sortOption, setSortOption] = useState('a-z');
+  const [typeFilter, setTypeFilter] = useState('');
+  const [sizeFilter, setSizeFilter] = useState('');
   const [error, setError] = useState(null);
+  
 
-  useEffect(() => {
+   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await fetch('http://localhost:8080/api/products');
@@ -21,9 +24,17 @@ const Shop = () => {
     };
 
     fetchProducts();
+
   }, []);
 
-  const sortedProducts = [...products].sort((a, b) => {
+  const filteredProducts = products.filter(product => {
+    return (
+      (typeFilter === '' || product.type === typeFilter) &&
+      (sizeFilter === '' || product.size === sizeFilter)
+    );
+  });
+
+  const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortOption === 'a-z') return a.name.localeCompare(b.name);
     if (sortOption === 'z-a') return b.name.localeCompare(a.name);
     return 0;
@@ -33,6 +44,14 @@ const Shop = () => {
     setSortOption(e.target.value);
   };
 
+  const handleTypeChange = (e) => {
+    setTypeFilter(e.target.value);
+  };
+
+  const handleSizeChange = (e) => {
+    setSizeFilter(e.target.value);
+  };
+
   return (
     <section className="shopProducts">
       <div className="container">
@@ -40,25 +59,23 @@ const Shop = () => {
           <div className="top">
             <div className="item">
               <h1>Our Products</h1>
-              <p>The original and unbeatable flash-frozen ice cream sensation. Your taste adventure awaits!</p>
+              <p>
+                The original and unbeatable flash-frozen ice cream sensation. Your taste adventure awaits!
+              </p>
             </div>
           </div>
           <div className="products">
             <div className="filter">
               <form>
                 <label>Filter by:</label>
-                <select name="type" id="type">
-                  <option value="" disabled selected>
-                    Product Type
-                  </option>
+                <select name="type" id="type" onChange={handleTypeChange}>
+                  <option value="">Product Type</option>
                   <option value="cream">Ice Cream</option>
                   <option value="ice">Ice</option>
                   <option value="yogurt">Frozen Yogurt</option>
                 </select>
-                <select name="type" id="type">
-                  <option value="" disabled selected>
-                    Size
-                  </option>
+                <select name="size" id="size" onChange={handleSizeChange}>
+                  <option value="">Size</option>
                   <option value="bulk">Bulk Bag</option>
                   <option value="single">Single Serving</option>
                 </select>
@@ -79,6 +96,7 @@ const Shop = () => {
           </div>
         </div>
       </div>
+      
     </section>
   );
 };

@@ -14,10 +14,11 @@ import Contact from "./pages/Contact";
 import ShopProducts from "./Components/ShopProducts";
 import EditCart from "./pages/EditCart";
 import CardInfo from "./pages/CardInfo";
+import Payment from "./pages/Payment";
 
 const App = () => {
   const location = useLocation();
-  const [cart, setCart] = useState([]); // Shared cart state
+  const [cart, setCart] = useState([]); 
 
   useEffect(() => {
     window.scrollTo({
@@ -27,7 +28,7 @@ const App = () => {
     });
   }, [location.pathname]);
 
-  // Function to add a product to the cart
+  
   const addToCart = (product) => {
     setCart((prevCart) => {
       const existingProduct = prevCart.find((item) => item.id === product.id);
@@ -38,11 +39,10 @@ const App = () => {
             : item
         );
       }
-      return [...prevCart, { ...product, quantity: 1 }]; // Add with initial quantity
+      return [...prevCart, { ...product, quantity: 1 }]; 
     });
   };
 
-  // Function to update the quantity of a product in the cart
   const updateCartItem = (id, action) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
@@ -59,19 +59,17 @@ const App = () => {
     );
   };
 
-  // Function to remove an item from the cart
   const removeFromCart = (id) => {
     setCart((prevCart) => prevCart.filter((item) => item.id !== id));
   };
 
-  // Function to clear the cart
   const clearCart = () => {
-    setCart([]); // Set the cart to an empty array
+    setCart([]);
   };
 
   return (
     <React.Fragment>
-      <Header cart={cart} clearCart={clearCart} /> {/* Pass clearCart to Header */}
+      <Header cart={cart} clearCart={clearCart} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/events" element={<Events />} />
@@ -102,6 +100,7 @@ const App = () => {
             <CardInfo cart={cart} addToCart={addToCart} updateCartItem={updateCartItem} />
           }
         />
+        <Route path="/payment" element={<Payment />} />
       </Routes>
       <Footer />
     </React.Fragment>

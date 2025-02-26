@@ -2,6 +2,7 @@
 //Components//
 @import "./Components/header";
 @import "./Components/footer";
+@import "./Components/shopProducts";
 //Pages//
 @import "./pages/events";
 @import "./pages/home";
@@ -9,9 +10,9 @@
 @import "./pages/shop";
 @import "./pages/notFound";
 @import "./pages/account";
-@import "./Components/shopProducts";
 @import "./pages/contact";
 @import "./pages/resetPassword";
 @import "./pages/register";
 @import "./pages/editCart";
 @import "./pages/cardInfo";
+@import "./pages/payment";
