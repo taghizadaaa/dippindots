@@ -52,6 +52,7 @@ footer {
                     p {
                         color: #fff;
                         font-family: sans-serif;
+                        margin-bottom: 20px;
                         margin-right: 20px;
                     }
                     .socials {
@@ -158,6 +159,19 @@ footer {
         }
         .email {
             width: 100% !important;
+            .container{
+                .items {
+                    width: 100%;
+                    text-align: center !important;
+                    h1 {
+                        width: 100%; 
+                        font-size: 1.9rem !important;
+                    }
+                    p {
+                        width: 100%;
+                    }
+                }
+            }
         }
     }
 }

@@ -1,73 +1,120 @@
 .storeLocation {
     padding: 190px 0 0;
 
-    .top {
+    .items {
         width: 100%;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
+
+        .top {
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
 
 
-        h1 {
-            font-size: 50px;
-            color: #00369D;
-            margin-bottom: 20px;
-            align-items: center;
+            h1 {
+                width: 100%;
+                font-size: 40px;
+                color: #00369D;
+                margin-bottom: 20px;
+                align-items: center;
+            }
+
+            p {
+                font-family: sans-serif;
+                font-size: 15px;
+                width: 100%;
+                line-height: 25px;
+                align-items: center;
+            }
         }
 
-        p {
-            font-family: sans-serif;
-            font-size: 15px;
-            width: 100%;
-            line-height: 25px;
-            align-items: center;
+        .content {
+            margin-top: 50px;
+
+            .contentItem {
+                display: flex;
+
+                .city {
+                    width: 30%;
+                    margin-top: 30px;
+
+                    label {
+                        font-family: sans-serif;
+                        font-size: 14px;
+                        margin-bottom: 13px;
+                        display: inline-block;
+                    }
+
+                    input {
+                        width: 95%;
+                        padding: 10px;
+                        border-radius: 8px;
+                        outline: none;
+                        border: 1px solid grey;
+                        margin-bottom: 18px;
+
+                        &::placeholder {
+                            font-family: sans-serif;
+                        }
+                    }
+
+                    .buttons {
+                        position: relative;
+
+                        .button {
+                            width: 95%;
+                        }
+
+                        .border {
+                            border-color: #00369D;
+                            width: 95%;
+                        }
+                    }
+                }
+
+                .googleMap {
+                    width: 70%;
+                    overflow: hidden;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 385px) {
+    .items {
+        .top {
+            h1 {
+                margin-top: 20px !important; 
+                font-size: 30px !important;
+            }
         }
     }
 
+}
+@media (max-width: 667px) {
     .content {
-        margin-top: 50px;
-
-        .contentItem {
+        width: 100%;
+        .contentItem { 
+            width: 100%;
             display: flex;
-
+            flex-direction: column;
             .city {
-                width: 30%;
-                margin-top: 30px;
-
-                label {
-                    font-family: sans-serif;
-                    font-size: 14px;
-                    margin-bottom: 13px;
-                    display: inline-block;
-                }
-
+                width: 100% !important;
                 input {
-                    width: 95%;
-                    padding: 10px;
-                    border-radius: 8px;
-                    outline: none;
-                    border: 1px solid grey;
-                    margin-bottom: 18px;
-
-                    &::placeholder {
-                        font-family: sans-serif;
-                    }
+                    width: 100% !important;
                 }
-
-                .buttons {
-                    position: relative;
-                    .button {
-                        width: 95%;
+                 .buttons {
+                    button {
+                        width: 100% !important; 
                     }
-                    .border {
-                        border-color: #00369D;
-                        width: 95%;
+                    span {
+                        width: 100% !important; 
                     }
-                }
+                 }
+                 margin-bottom: 20px;
             }
-
             .googleMap {
-                width: 70%;
+                width: 100% !important;
             }
         }
     }

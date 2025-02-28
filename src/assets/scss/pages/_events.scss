@@ -88,8 +88,27 @@
 
 }
 @media (max-width: 601px) and (min-width: 300px) {
-    .card {
-        width: 100% !important;
+    .events {
+        .container {
+            display: flex;
+            justify-content: center;
+            .items {
+                width: 100% !important;
+                .top {
+                    width: 100% !important;
+                    h1 {
+                        width: 100%;
+                        margin-bottom: 30px;
+                    }
+                }
+                .cards {
+                    margin-top: 50px;
+                }
+            }
+        }
+        .card {
+            width: 100% !important;
+        }
     }
 }
 @media (max-width: 991px) and (min-width: 601px) {

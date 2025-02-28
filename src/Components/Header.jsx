@@ -62,7 +62,7 @@ const Header = ({ cart, clearCart }) => {
                 </Link>
               </li>
               <li>
-                <Link className="whiteLink" onClick={closeBurgerMenu}>
+                <Link className="whiteLink" to="/shop" onClick={closeBurgerMenu}>
                   FLAVORS
                 </Link>
               </li>
@@ -72,7 +72,7 @@ const Header = ({ cart, clearCart }) => {
                 </Link>
               </li>
               <li>
-                <Link className="whiteLink" onClick={closeBurgerMenu}>
+                <Link className="whiteLink" to="/shop" onClick={closeBurgerMenu}>
                   RECIPES
                 </Link>
               </li>
@@ -82,12 +82,12 @@ const Header = ({ cart, clearCart }) => {
                 </Link>
               </li>
               <li>
-                <Link className="whiteLink" onClick={closeBurgerMenu}>
+                <Link className="whiteLink" to="/shop" onClick={closeBurgerMenu}>
                   SELL
                 </Link>
               </li>
               <li>
-                <Link className="whiteLink" onClick={closeBurgerMenu}>
+                <Link className="whiteLink" to="/shop" onClick={closeBurgerMenu}>
                   DOT CRAZY! EMAIL CLUB
                 </Link>
               </li>
@@ -106,7 +106,7 @@ const Header = ({ cart, clearCart }) => {
               {isLoggedIn ? (
                 <div className="accountWrapper">
                   <div className="blueLink accountHover" onClick={handleAccountClick}>
-                    <FaRegUserCircle /> ACCOUNT
+                    <span className='accountLogo'><FaRegUserCircle /></span> ACCOUNT
                     {isDropdownVisible && (
                       <div className="accountDropdown">
                         <ul>
@@ -163,13 +163,13 @@ const Header = ({ cart, clearCart }) => {
             </div>
           ) : (
             <Link className="blueLink" to="/account">
-              <FaRegUserCircle /> ACCOUNT
+              <span className='accountLogo'><FaRegUserCircle /></span> ACCOUNT
             </Link>
           )}
         </div>
         <div className="cart">
           <button className="button" onClick={toggleCart}>
-            <FaShoppingCart /> CART
+            <span className='cartLogo'><FaShoppingCart /></span> CART
             {uniqueCartItems.length > 0 && (
               <span className="quantityBadge">{uniqueCartItems.length}</span>
             )}
@@ -245,7 +245,7 @@ const Header = ({ cart, clearCart }) => {
               </Link>
             </li>
             <li>
-              <Link className="whiteLink" >
+              <Link className="whiteLink" to="/shop" >
                 FLAVORS
               </Link>
             </li>
@@ -255,7 +255,7 @@ const Header = ({ cart, clearCart }) => {
               </Link>
             </li>
             <li>
-              <Link className="whiteLink">
+              <Link className="whiteLink" to="/shop">
                 RECIPES
               </Link>
             </li>
@@ -265,12 +265,12 @@ const Header = ({ cart, clearCart }) => {
               </Link>
             </li>
             <li>
-              <Link className="whiteLink" >
+              <Link className="whiteLink" to="/shop">
                 SELL
               </Link>
             </li>
             <li>
-              <Link className="whiteLink" >
+              <Link className="whiteLink" to="/shop">
                 DOT CRAZY! EMAIL CLUB
               </Link>
             </li>

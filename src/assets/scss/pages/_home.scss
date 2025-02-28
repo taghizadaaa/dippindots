@@ -540,24 +540,24 @@
     }
 }
 
-@media (max-width: 385px) {
-    .items {
-        top: 150px !important;
-        z-index: 1;
-        width: 250px;
-        left: 80px;
+// @media (max-width: 385px) {
+//     // .items {
+//     //     top: 150px !important;
+//     //     z-index: 1;
+//     //     width: 250px;
+//     //     left: 80px;
 
-        h1 {
-            font-size: .7rem !important;
-            width: 150px;
-        }
+//     //     h1 {
+//     //         font-size: .7rem !important;
+//     //         width: 150px;
+//     //     }
 
-        p {
-            width: 200px;
-            font-size: .7rem !important;
-        }
-    }
-}
+//     //     p {
+//     //         width: 200px;
+//     //         font-size: .7rem !important;
+//     //     }
+//     // }
+// }
 
 @media (max-width: 991px) and (min-width: 300px) {
     .home {

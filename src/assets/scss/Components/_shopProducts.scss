@@ -3,7 +3,7 @@
 
     .product-list {
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: wrap !important;
 
         .card {
             width: 24%;
@@ -50,5 +50,19 @@
             }
         }
 
+    }
+}
+@media (max-width: 601px) and (min-width: 453px) {
+    .product-list {
+        .card {
+            width: 50% !important;
+        }
+    }
+}
+@media (max-width: 453px) and (min-width: 300px) {
+    .product-list {
+        .card {
+            width: 100% !important;
+        }
     }
 }

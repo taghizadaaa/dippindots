@@ -33,10 +33,10 @@ const Footer = () => {
                 </span>
                 <li><Link className='grey' to="/shop">Products</Link></li>
                 <li ><Link className='grey' to="/location">Locations</Link></li>
-                <li>Return Policy</li>
-                <li>Dot Crazy! Email Club</li>
+                <li><Link className='grey' to="/shop">Return Policy</Link></li>
+                <li><Link className='grey' to="/shop">Dot Crazy! Email Club</Link></li>
                 <li><Link className='grey' to="/edit">Your Online Order</Link></li>
-                <li>Online Ordering Policy</li>
+                <li><Link className='grey' to="/shop">Online Ordering Policy</Link></li>
               </ul>
               <ul>
                 <span>
@@ -73,13 +73,13 @@ const Footer = () => {
               <div className="items">
                 <p>Follow us on social!</p>
                 <div className="socials">
-                  <span><Link className='white'><FaFacebookF /></Link></span>
-                  <span><Link className='white'><FaInstagram /></Link></span>
-                  <span><Link className='white'><FaTwitter /></Link></span>
-                  <span><Link className='white'><FaTiktok /></Link></span>
-                  <span><Link className='white'><FaYoutube /></Link></span>
-                  <span><Link className='white'><FaPinterest /></Link></span>
-                  <span><Link className='white'><FaLinkedin /></Link></span>
+                  <span><Link className='white' to="https://www.facebook.com" target='blank'><FaFacebookF /></Link></span>
+                  <span><Link className='white' to="https://www.instagram.com/" target='blank'><FaInstagram /></Link></span>
+                  <span><Link className='white' to="https://x.com/" target='blank'><FaTwitter /></Link></span>
+                  <span><Link className='white' to="https://www.tiktok.com/foryou?lang=en" target='blank'><FaTiktok /></Link></span>
+                  <span><Link className='white' to="https://www.youtube.com/" target='blank'><FaYoutube /></Link></span>
+                  <span><Link className='white' to="https://www.pinterest.com/" target='blank'><FaPinterest /></Link></span>
+                  <span><Link className='white' to="https://az.linkedin.com/" target='blank'><FaLinkedin /></Link></span>
                 </div>
               </div>
               <div className="copyright">

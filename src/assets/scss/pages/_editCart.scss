@@ -1,7 +1,7 @@
 .editCart {
     padding: 190px 0;
-
     .items {
+        width: 100%;
         display: flex;
         justify-content: space-between;
 
@@ -146,6 +146,33 @@
         flex-direction: column;
         .yourCart {
             width: 100% !important;
+        }
+        .total {
+            width: 100% !important;
+            align-items: center;
+            h2 {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+@media (max-width: 500px) {
+    .yourCart {
+        h1 {
+            font-size: 2rem !important;
+        }
+        tbody {
+            td {
+                font-size: .6rem !important;
+                .quantityControl {
+                    button {
+                        padding: 0 !important;
+                    }
+                }
+                .cartRemove {
+                    font-size: .6rem !important;
+                }
+            }
         }
     }
 }

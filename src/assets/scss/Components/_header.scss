@@ -45,10 +45,10 @@ header {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                width: 100vw !important;
+                width: 110vh !important;
                 left: -150%;
                 top: 50px;
-                padding: 40px;
+                padding: 0px 40px 40px;
                 height: 100vh;
                 background-color: #00369D;
                 transition: left 0.3s ease-in-out;
@@ -59,7 +59,7 @@ header {
 
                 ul {
                     li {
-                        margin-bottom: 20px;
+                        margin-bottom: 10px;
 
                         .whiteLink {
                             font-size: 20px;
@@ -246,6 +246,19 @@ header {
     header {
         .top {
             width: 100% !important;
+            .blueLink {
+                display: flex;
+                gap: 5px;
+                .accountLogo {
+                    display: inline;
+                }
+            }
+            .cart {
+                .button {
+                    display: flex;
+                    gap: 5px;
+                }
+            }
         }
 
         .ice {
@@ -255,6 +268,18 @@ header {
 
     .burgerMenu {
         display: inline-block !important;
+        .leftDiv {
+            top: 65px !important;
+            ul {
+                width: 100% !important;
+                li {
+                    width: 100% !important;
+                }
+            }
+            .contact {
+                padding-left: 5px !important;
+            }
+        }
     }
 
     nav {
@@ -278,22 +303,18 @@ header {
     .burgerMenu {
         padding: 0px !important;
         .leftDiv {
-            top: 47px !important;
             height: 740px !important;
             justify-content: flex-start !important;
             ul {
                 width: 200px;
-
                 li {
-                    margin-bottom: 0px !important;
                     .whiteLink {
-                        font-size: 0.4em !important;
+                        font-size: 0.7em !important;
                     }
                 }
-
-                .contactLink {
-                    font-size: 0.3rem !important;
-                }
+            }
+            .contactLink {
+                font-size: 0.7rem !important;
             }
         }
 
@@ -336,9 +357,6 @@ header {
     .top {
         display: flex;
         justify-content: space-between !important;
-        .burgerMenu {
-            position:  relative !important;
-        }
     }
     .ice {
         padding: 0px !important;
@@ -350,6 +368,19 @@ header {
         }
         .right {
             display: none;
+        }
+    }
+}
+@media (max-width: 477px) {
+    .burgerMenu {
+        .leftDiv {
+            left: -240% !important;
+            li {
+                padding-left: 5px;
+            }
+        }
+        .active {
+            left: -10% !important;
         }
     }
 }
