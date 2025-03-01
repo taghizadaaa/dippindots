@@ -15,33 +15,75 @@ const Payment = () => {
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(false);
 
+  const formatCardNumber = (value) => {
+    return value.replace(/\D/g, '').slice(0, 16).replace(/(.{4})/g, '$1 ').trim();
+  };
+
+  const formatExpiryDate = (value) => {
+    let numericValue = value.replace(/\D/g, '');
+    if (numericValue.length > 4) numericValue = numericValue.slice(0, 4);
+
+    let month = numericValue.slice(0, 2);
+    let year = numericValue.slice(2, 4);
+
+    if (parseInt(month, 10) > 12) month = '';
+    
+    return month + (numericValue.length > 2 ? '/' + year : '');
+  };
+
+  const formatName = (value) => {
+    return value.replace(/[^a-zA-Z ]/g, '').replace(/\b\w/g, (char) => char.toUpperCase());
+  };
+
+  const formatCityAndCountry = (value) => {
+    return value
+      .replace(/[^a-zA-Z ]/g, '') 
+      .replace(/\b\w/g, (char) => char.toUpperCase()); 
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    if (name === 'cardNumber' && value.length > 16) return;
-    if (name === 'cvv' && value.length > 3) return;
+    if (name === 'cardNumber') {
+      setFormData({ ...formData, [name]: formatCardNumber(value) });
+      return;
+    }
+    if (name === 'expiryDate') {
+      setFormData({ ...formData, [name]: formatExpiryDate(value) });
+      return;
+    }
+    if (name === 'cvv' && !/^\d{0,3}$/.test(value)) return;
+    if (name === 'name') {
+      setFormData({ ...formData, [name]: formatName(value) });
+      return;
+    }
+    if (name === 'postalCode' && /\D/.test(value)) return;
 
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    
+    if (name === 'city' || name === 'country') {
+      setFormData({ ...formData, [name]: formatCityAndCountry(value) });
+      return;
+    }
+
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-
+    const isLoggedIn = localStorage.getItem('token');
+    if (!isLoggedIn) {
+      alert('You must log in to complete the payment.');
+      return;
+    }
     if (
       !formData.name ||
-      formData.cardNumber.length !== 16 ||
+      formData.cardNumber.replace(/\s/g, '').length !== 16 ||
       formData.cvv.length !== 3 ||
       !formData.expiryDate
     ) {
       setError('Please fill in all required fields with valid values.');
       return;
     }
-
-
     setTimeout(() => {
       console.log('Payment submitted:', formData);
       setError(null);
@@ -82,7 +124,7 @@ const Payment = () => {
                 value={formData.cardNumber}
                 onChange={handleChange}
                 placeholder="1234 5678 9012 3456"
-                maxLength="16"
+                maxLength="19"
                 required
               />
             </div>
@@ -125,31 +167,29 @@ const Payment = () => {
                 required
               />
             </div>
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="city">City</label>
-                <input
-                  type="text"
-                  id="city"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleChange}
-                  placeholder="Your City"
-                  required
-                />
-              </div>
-              <div className="form-group">
-                <label htmlFor="postalCode">Postal Code</label>
-                <input
-                  type="text"
-                  id="postalCode"
-                  name="postalCode"
-                  value={formData.postalCode}
-                  onChange={handleChange}
-                  placeholder="10001"
-                  required
-                />
-              </div>
+            <div className="form-group">
+              <label htmlFor="city">City</label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                value={formData.city}
+                onChange={handleChange}
+                placeholder="Your City"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="postalCode">Postal Code</label>
+              <input
+                type="text"
+                id="postalCode"
+                name="postalCode"
+                value={formData.postalCode}
+                onChange={handleChange}
+                placeholder="10001"
+                required
+              />
             </div>
             <div className="form-group">
               <label htmlFor="country">Country</label>
@@ -167,7 +207,6 @@ const Payment = () => {
               <button type="submit" className="button">
                 Pay Now
               </button>
-              <span className="border"></span>
             </div>
           </form>
         )}

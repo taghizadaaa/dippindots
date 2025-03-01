@@ -1,17 +1,35 @@
-import React from 'react'
-import { Link } from 'react-router';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom'; 
 import iceLeft from "../assets/Images/ice-cap-left.svg";
 import iceRight from "../assets/Images/ice-cap-right.svg";
-import { FaFacebookF } from "react-icons/fa";
-import { FaInstagram } from "react-icons/fa";
-import { FaTwitter } from "react-icons/fa";
-import { FaTiktok } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
-import { FaPinterest } from "react-icons/fa";
-import { FaLinkedin } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTwitter, FaTiktok, FaYoutube, FaPinterest, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();  
   const currentYear = new Date().getFullYear();
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    setError(''); 
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!email) {
+      setError('Please enter a valid email address.');
+      return;
+    }
+
+    
+    console.log('Email subscribed:', email);
+
+   
+    setEmail(''); 
+    navigate('/'); 
+  };
 
   return (
     <footer>
@@ -28,20 +46,16 @@ const Footer = () => {
           <div className="container">
             <div className="top">
               <ul>
-                <span>
-                  Get Dippin' Dots
-                </span>
+                <span>Get Dippin' Dots</span>
                 <li><Link className='grey' to="/shop">Products</Link></li>
-                <li ><Link className='grey' to="/location">Locations</Link></li>
+                <li><Link className='grey' to="/location">Locations</Link></li>
                 <li><Link className='grey' to="/shop">Return Policy</Link></li>
                 <li><Link className='grey' to="/shop">Dot Crazy! Email Club</Link></li>
                 <li><Link className='grey' to="/edit">Your Online Order</Link></li>
                 <li><Link className='grey' to="/shop">Online Ordering Policy</Link></li>
               </ul>
               <ul>
-                <span>
-                  Business Opportunities
-                </span>
+                <span>Business Opportunities</span>
                 <li>U.S. Franchising</li>
                 <li>Food Services</li>
                 <li>Dippin' Dots Distribution</li>
@@ -50,9 +64,7 @@ const Footer = () => {
                 <li><Link className='grey' to="/contact">Contact Us</Link></li>
               </ul>
               <ul>
-                <span>
-                  About Dippin' Dots
-                </span>
+                <span>About Dippin' Dots</span>
                 <li>Company Overview</li>
                 <li>History & Timeline</li>
                 <li>Affiliations</li>
@@ -63,9 +75,7 @@ const Footer = () => {
                 <li>Accessibility</li>
               </ul>
               <ul>
-                <span>
-                  Our Brands
-                </span>
+                <span>Our Brands</span>
                 <li>Doc Popcorn</li>
               </ul>
             </div>
@@ -93,12 +103,17 @@ const Footer = () => {
             <div className="items">
               <h1>Dot Crazy! Email Club</h1>
               <p>Want to be up to date with our products, recipes, promos, and more? Sign up today!</p>
-              <form>
-                <input type="email" placeholder='Enter your email address' />
+              <form onSubmit={handleSubmit}>
+                <input 
+                  type="email" 
+                  value={email}
+                  onChange={handleEmailChange}
+                  placeholder="Enter your email address"
+                  required
+                />
+                {error && <p className="error">{error}</p>}
                 <div className="buttons">
-                  <button
-                    className="button"
-                  >
+                  <button className="button" type="submit">
                     SUBSCRIBE NOW
                   </button>
                   <span className="border"></span>
@@ -109,7 +124,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

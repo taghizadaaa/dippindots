@@ -7,9 +7,9 @@ const Shop = () => {
   const [typeFilter, setTypeFilter] = useState('');
   const [sizeFilter, setSizeFilter] = useState('');
   const [error, setError] = useState(null);
-  
 
-   useEffect(() => {
+
+  useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await fetch('http://localhost:8080/api/products');
@@ -18,36 +18,43 @@ const Shop = () => {
         }
         const data = await response.json();
         setProducts(data);
+        console.log('API-dən gələn məhsullar:', data); 
       } catch (err) {
         setError(err.message);
       }
     };
 
     fetchProducts();
-
   }, []);
 
-  const filteredProducts = products.filter(product => {
+ 
+  const filteredProducts = products.filter((product) => {
     return (
       (typeFilter === '' || product.type === typeFilter) &&
       (sizeFilter === '' || product.size === sizeFilter)
     );
   });
 
+  console.log('Filtr edilmiş məhsullar:', filteredProducts); 
+
+  
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     if (sortOption === 'a-z') return a.name.localeCompare(b.name);
     if (sortOption === 'z-a') return b.name.localeCompare(a.name);
     return 0;
   });
 
+  
   const handleSortChange = (e) => {
     setSortOption(e.target.value);
   };
 
+  
   const handleTypeChange = (e) => {
     setTypeFilter(e.target.value);
   };
 
+  
   const handleSizeChange = (e) => {
     setSizeFilter(e.target.value);
   };
@@ -96,7 +103,6 @@ const Shop = () => {
           </div>
         </div>
       </div>
-      
     </section>
   );
 };
